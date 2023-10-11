@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API;
@@ -8,35 +9,43 @@ namespace API;
 [Route("api/[controller]")] // /api/users
 public class JobsController : ControllerBase
 {
-        private readonly DataContext _context;
-public JobsController(DataContext context)
+    private readonly IJobRepository jobRepository;
+    private readonly IMapper mapper;
+
+    public JobsController(IJobRepository jobRepository, IMapper mapper)
 {
-        _context = context;
-}
+        
+        this.jobRepository = jobRepository;
+        this.mapper = mapper;
+    }
 
 // POST: api/Jobs
 
 [HttpPost]
-public async Task<ActionResult<Job>> PostJob(Job job)
+public async Task<ActionResult<Job>> PostJob(CreateJobDto createJob)
 {
-    _context.Jobs.Add(job);
-    await _context.SaveChangesAsync();
 
+    var job = mapper.Map<Job>(createJob);
+    await jobRepository.AddAsync(job);
     return CreatedAtAction("GetJob", new {id = job.Id},job);
 }
 
 // GET: api/Jobs
 [HttpGet]
-public async Task<ActionResult<IEnumerable<Job>>> GetJobs(){
+public async Task<ActionResult<IEnumerable<GetJobDto>>> GetJobs(){
 
-    return await _context.Jobs.ToListAsync();
+    var jobs =  await jobRepository.GetAllAsync();
+    var records = mapper.Map<List<GetJobDto>>(jobs);
+    return Ok(records);
+
+    
 }
 
 // GET: api/JOBS/5
 [HttpGet("{id}")]
 public async Task<ActionResult<Job>> GetJob(int id)
 {
-     var job = await _context.Jobs.FindAsync(id);
+     var job = await jobRepository.GetAsync(id);
 
      if(job == null)
      {
@@ -49,22 +58,28 @@ public async Task<ActionResult<Job>> GetJob(int id)
 
 // Put: api/Jobs/5
 [HttpPut("{id}")]
-public async Task<ActionResult> PutJob(int id, Job job)
+public async Task<ActionResult> PutJob(int id, GetJobDto updateJobDto)
 {
-    if(id != job.Id)
+    if(id != updateJobDto.Id)
     {
         return BadRequest("Invalid Record Id");
     }
 
-    _context.Entry(job).State = EntityState.Modified;
+    var job = await jobRepository.GetAsync(id);
 
+    if(job == null)
+    {
+        return NotFound();
+    }
+
+    mapper.Map(updateJobDto,job);
     try
     {
-        await _context.SaveChangesAsync();
+        await jobRepository.UpdateAsync(job);
     }
     catch (DbUpdateConcurrencyException)
     {
-        if(!JobExists(id))
+        if(!await JobExists(id))
         {
             return NotFound();
         }
@@ -80,18 +95,16 @@ public async Task<ActionResult> PutJob(int id, Job job)
 [HttpDelete("{id}")]
 public async Task<IActionResult> DeleteJob(int id)
 {
-    if(!JobExists(id))
+    if(!await JobExists(id))
     return NotFound();
-
-    var job = await _context.Jobs.FindAsync(id);
-    _context.Jobs.Remove(job);
-    await _context.SaveChangesAsync();
+    
+    await jobRepository.DeleteAsync(id);
     return NoContent();
 }
 
-private bool JobExists(int id)
+private async Task<bool> JobExists(int id)
 {
-    return _context.Jobs.Any(e=>e.Id == id);
+    return await jobRepository.Exists(id);
 }
 
 }

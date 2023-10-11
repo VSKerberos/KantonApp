@@ -5,5 +5,6 @@ public class ShowRoom
     public string Header { get; set; }
     public string Desc { get; set; }
     public string Path { get; set; }
+    public DateTime CreatedDate { get; set; }
 
 }

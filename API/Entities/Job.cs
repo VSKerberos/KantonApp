@@ -5,8 +5,7 @@ public class Job
 
     public string Title { get; set; }
 
-    public virtual IList<Director> Directors { get; set; }
-
+    public  Director? Director {get;set;}
 
 
 }
