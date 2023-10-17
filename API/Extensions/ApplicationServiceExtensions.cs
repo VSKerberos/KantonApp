@@ -1,4 +1,6 @@
 ﻿namespace API;
+
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 public static class ApplicationServiceExtensions
 {
@@ -16,7 +18,12 @@ public static class ApplicationServiceExtensions
                 services.AddScoped<IDirectorRepository,DirectorsRepository>();
                 services.AddScoped<ILinkRepository,LinksRepository>();
                 services.AddScoped<IContactRepository,ContactRepository>();  
+                services.AddScoped<IBlockDirectorRepository,BlockDirectorRepository>();
+                services.AddScoped<IShowRoomRepository,ShowRoomRepository>();
 
+
+
+                services.AddValidatorsFromAssemblyContaining<CreateContactFormValidator>();
 
                 return services;
     }

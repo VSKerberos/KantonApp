@@ -21,17 +21,27 @@ public class GetDirectorDto
         public int JobId { get; set; }
 }
 
+public class CreateBlockDirectorDto
+{
+        public int JobId{ get; set; }
+        public int IslandId{ get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
 
-/*
+}
 
- public int Id { get; set; }
+public class GetBlockDirectorDto
+{
+        public int Id { get; set; }
+         public int JobId{ get; set; }
+        public int IslandId{ get; set; }
 
-    public string Name { get; set; }
+        public string JobTitle { get; set; }
 
-    public string Surname { get; set; }
+        public string IslandName { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
 
-    [ForeignKey(nameof(JobId))]
-    public int JobId{ get; set; }
-    public Job Job { get; set; }
+}
 
-*/
+

@@ -23,6 +23,20 @@ public class ContactsController : ControllerBase
 [HttpPost]
 public async Task<ActionResult<CreateContactFormDto>> PostContact(CreateContactFormDto createContact)
 {
+    var validator = new CreateContactFormValidator();
+    var results = validator.Validate(createContact);
+
+    if(!results.IsValid) {
+        var error = new List<string>();
+    foreach (var failure in results.Errors)
+            {
+                        error.Add($" {failure.ErrorMessage} ");
+                       
+            }
+
+            return BadRequest(error);
+    }
+
      var contact = mapper.Map<Contact>(createContact);
      await contactRepository.AddAsync(contact);
      return CreatedAtAction("GetContact", new {id = contact.Id},createContact);

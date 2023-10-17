@@ -13,6 +13,10 @@ public class AutoMapperProfile : Profile
         CreateMap<UsefulLink,GetLinkDto>().ReverseMap();
         CreateMap<Contact,CreateContactFormDto>().ReverseMap();
         CreateMap<Contact,GetContactFormDto>().ReverseMap();
+        CreateMap<IslandDirector,CreateBlockDirectorDto>().ReverseMap();
+        CreateMap<IslandDirector,GetBlockDirectorDto>().ReverseMap();
+        CreateMap<ShowRoom,CreateShowRoomDto>().ReverseMap();
+        CreateMap<ShowRoom,GetShowRoomDto>().ReverseMap();
 
 
 
