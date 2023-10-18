@@ -24,6 +24,18 @@ public class JobsController : ControllerBase
 [HttpPost]
 public async Task<ActionResult<Job>> PostJob(CreateJobDto createJob)
 {
+    var validator = new CreateJobValidator();
+    var results = validator.Validate(createJob);
+      if(!results.IsValid) {
+        var error = new List<string>();
+    foreach (var failure in results.Errors)
+            {
+                        error.Add($" {failure.ErrorMessage} ");
+                       
+            }
+
+            return BadRequest(error);
+    }
 
     var job = mapper.Map<Job>(createJob);
     await jobRepository.AddAsync(job);

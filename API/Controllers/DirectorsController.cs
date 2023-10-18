@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,20 @@ public class DirectorsController : ControllerBase
 [HttpPost]
 public async Task<ActionResult<CreateDirectorDto>> PostDirector(CreateDirectorDto createDirector)
 {
+        var validator = new CreateDirectorValidator();
+    var results = validator.Validate(createDirector);
+
+     if(!results.IsValid) 
+     {
+        var error = new List<string>();
+    foreach (var failure in results.Errors)
+            {
+                        error.Add($" {failure.ErrorMessage} ");
+                       
+            }
+
+            return BadRequest(error);
+    }
 
      var director = mapper.Map<Director>(createDirector);
      await directorRepository.AddAsync(director);
@@ -63,6 +78,22 @@ public async Task<ActionResult> PutDirector(int id, GetDirectorDto updateDirecto
     {
         return BadRequest("Invalid Record Id");
     }
+
+    var validator = new UpdateDirectorValidator();
+   var results = validator.Validate(updateDirectorDto);
+   if(!results.IsValid) 
+     {
+            var error = new List<string>();
+            foreach (var failure in results.Errors)
+            {
+                        error.Add($" {failure.ErrorMessage} ");
+                       
+            }
+
+            return BadRequest(error);
+    }
+
+
 
     var updatedDirector = await directorRepository.GetAsync(id);
 
