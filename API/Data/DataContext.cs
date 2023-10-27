@@ -14,6 +14,7 @@ public class DataContext : DbContext
      public DbSet<ShowRoom> ShowRooms { get; set; }
      public DbSet<Island> Islands { get; set; }
      public DbSet<IslandDirector> IslandDirectors { get; set; }
+     public DbSet<Log> Logs {get; set;}
      
 
 

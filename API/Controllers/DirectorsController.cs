@@ -74,6 +74,8 @@ public async Task<ActionResult<IEnumerable<GetDirectorDto>>> GetDirectors(){
 [HttpPut("{id}")]
 public async Task<ActionResult> PutDirector(int id, GetDirectorDto updateDirectorDto)
 {
+
+    throw new Exception("hhtput deneme ");
     if(id != updateDirectorDto.Id)
     {
         return BadRequest("Invalid Record Id");
