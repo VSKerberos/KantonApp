@@ -1,3 +1,110 @@
 
+<!-- navbar-->
+<nav class="navbar is-fixed-top box-shadow-y">
 
-<router-outlet></router-outlet>
+  <div class="navbar-brand">
+    <a href="#" class="navbar-burger toggler">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+<a href="#" class="navbar-item has-text-weight-bold has-text-black">Second Hamburger Menu</a>
+
+<a href="#" class="navbar-burger nav-toggler">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</a>
+
+  </div>
+
+  <div class="navbar-menu has-background-white">
+    <div class="navbar-start">
+      <a href="#" class="navbar-item">
+        <i class="fas fa-home icon"></i>
+         Home
+      </a>
+      <a href="#" class="navbar-item">Features</a>
+      <a href="#" class="navbar-item">Pricing</a>
+      <a href="#" class="navbar-item">About</a>
+    </div>
+
+    <div class="navbar-end">
+      <a href="#" class="navbar-item">Notifications</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a href="#" class="navbar-link">1st</a>
+        <div class="navbar-dropdown">
+          <a href="#" class="navbar-item">Profile</a>
+          <a href="#" class="navbar-item">Settings</a>
+          <hr class="navbar-divider">
+          <a href="#" class="navbar-item">Log Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</nav>
+
+<!-- navbar -end-->
+
+<!--sidebar-->
+
+<div class="columns is-variable is-0">
+  <div>
+    <div class="menu-container px-1 has-background-white custom-bg">
+      <div class="menu-wrapper py-1">
+        <aside class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a>
+            <i class="fas fa-tachometer-alt icon" routerLink="/dashboard"></i>
+              Dashboard
+            </a></li>
+            <li><a>Customers</a></li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a>Team Settings</a></li>
+            <li>
+              <a class="has-background-primary">Manage Your Team</a>
+              <ul>
+                <li><a href="#" routerLinkActive="is-active">Members</a></li>
+                <li><a>Plugins</a></li>
+                <li><a>Add a member</a></li>
+              </ul>
+            </li>
+            <li><a>Invitations</a></li>
+            <li><a>Cloud Storage Environment Settings</a></li>
+            <li><a routerLinkActive="is-active" routerLink="/auth" >Authentication</a></li>
+          </ul>
+          <p class="menu-label">
+            Transactions
+          </p>
+          <ul class="menu-list">
+            <li><a>Payments</a></li>
+            <li><a>Transfers</a></li>
+            <li><a>Balance</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
+
+
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>
+
+<!--sidebar -end-->
+
+
