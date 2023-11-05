@@ -1,0 +1,173 @@
+<div class="p-1 top-20">
+
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        Eray Sitesi YönetiAda Yöneticileri
+      </p>
+
+    </header>
+    <div class="card-content">
+      <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a href="#" class="card-footer-item">Save</a>
+      <a href="#" class="card-footer-item">Edit</a>
+      <a href="#" class="card-footer-item">Delete</a>
+    </footer>
+  </div>
+
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <div class="box">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48"><img src="media/icons/folder-o.svg">
+                </figure>
+            </div>
+            <div class="media-content has-text-right">
+                <h3 class="title is-1 has-text-info">2</h3>
+            </div>
+        </div>
+        <h4 class="title">Projects</h4>
+        <progress class="progress is-info" role="progressbar" value="75" max="100">
+        </progress>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-two-fifths">
+    <div class="list has-visible-pointer-controls">
+      <div class="list-item" *ngFor="let item of currentJobs">
+        <div class="list-item-image">
+          <figure class="image is-64x64">
+            <img class="is-rounded" src="https://via.placeholder.com/128x128.png?text=Image">
+          </figure>
+        </div>
+
+        <div class="list-item-content">
+          <div class="list-item-title"></div>
+          <div class="list-item-description">Ada Kanton Yöneticileri</div>
+        </div>
+
+        <div class="list-item-controls">
+          <div class="buttons is-right">
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-edit"></i>
+              </span>
+              <span>Edit</span>
+            </button>
+
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-ellipsis-h"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-item">
+        <div class="list-item-image">
+          <figure class="image is-64x64">
+            <img class="is-rounded" src="https://via.placeholder.com/128x128.png?text=Image">
+          </figure>
+        </div>
+
+        <div class="list-item-content">
+          <div class="list-item-title">List item</div>
+          <div class="list-item-description">List item description</div>
+        </div>
+
+        <div class="list-item-controls">
+          <div class="buttons is-right">
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-edit"></i>
+              </span>
+              <span>Edit</span>
+            </button>
+
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-ellipsis-h"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-item">
+        <div class="list-item-image">
+          <figure class="image is-64x64">
+            <img class="is-rounded" src="https://via.placeholder.com/128x128.png?text=Image">
+          </figure>
+        </div>
+
+        <div class="list-item-content">
+          <div class="list-item-title">List item</div>
+          <div class="list-item-description">List item description</div>
+        </div>
+
+        <div class="list-item-controls">
+          <div class="buttons is-right">
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-edit"></i>
+              </span>
+              <span>Edit</span>
+            </button>
+
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-ellipsis-h"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="columns is-mobile">
+  <div class="column">
+    <div  [ngClass]="clicked === true ? 'dropdown is-active' : 'dropdown'" (click)="setClass()" >
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+          <span>Yöneticiler</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+
+      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+        <div class="dropdown-content">
+          <div class="dropdown-item" *ngFor="let item of currentJobs">
+            <p>You can insert <strong>{{item.title}}</strong> within the dropdown menu.</p>
+          </div>
+          <hr class="dropdown-divider">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">2</div>
+  <div class="column">3</div>
+  <div class="column">4</div>
+</div>
+
+</div>
+

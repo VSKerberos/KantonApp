@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { JobComponent } from './job/job.component';
 
 const routes: Routes = [
   {
     path:'', component:LoginComponent,
-    children:[
-      {
-        path:'auth',
-        component:LoginComponent
-      }
-    ]
+  },
+  {
+    path:'job',component:JobComponent
   }
 ];
 

@@ -29,11 +29,11 @@ const routes: Routes = [
     children: [
       {
         path:'admin',
-        redirectTo:'/auth',
+        redirectTo:'/admin',
         pathMatch:'full'
       },
       {
-        path:'auth',
+        path:'admin',
         loadChildren:()=> import('./auth/auth.module').then(m=>m.AuthModule)
       }
 
