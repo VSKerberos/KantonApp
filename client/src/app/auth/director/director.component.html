@@ -1,0 +1,53 @@
+<div class="p-1 top-20">
+
+  <div class="card">
+   <header class="card-header">
+     <p class="card-header-title">
+       Eray Sitesi Yönetim Kurulu Tanımlama Sayfası
+     </p>
+
+   </header>
+   <div class="card-content">
+    <form novalidate [formGroup]="directorForm">
+
+
+      <app-text-input
+       [formControl]='directorForm.controls["firstName"]'
+       [placeholder]="'Adı'"
+       [label]="'Adı'"
+       [requiredMessage]="'Adı bilgisi zorunludur'"
+        [minlength]='"5"' [maxlength]='"40"'></app-text-input>
+
+        <app-text-input
+        [formControl]='directorForm.controls["secondName"]'
+        [placeholder]="'Soyadı'"
+        [label]="'Soyadı'"
+        [requiredMessage]="'Soyad bilgisi zorunludur'"
+         [minlength]='"5"' [maxlength]='"40"'></app-text-input>
+
+         <div class="field">
+          <label class="label">Görev Adı</label>
+          <div class="control">
+         <div class="select is-rounded">
+          <select >
+            <option *ngFor="let item of avaliableJobs" [value]="item.id">{{item.title}}</option>
+          </select>
+        </div>
+      </div>
+      </div>
+
+
+    </form>
+  </div>
+  <footer class="card-footer">
+    <div class="card-footer-item">
+      <button class="button is-primary" type="submit" (click)="onSubmit()" [disabled]="directorForm.invalid" >Kaydet</button>
+    </div>
+  </footer>
+ </div>
+
+
+
+
+</div>
+

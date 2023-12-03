@@ -1,0 +1,33 @@
+<div class="field">
+  <label class="label" [for]="forLabel">{{label}}</label>
+  <div class="control has-icons-left has-icons-right">
+    <input     class="input is-success"  [ngClass]="ngControl.touched ? 'input is-success' : 'input is-danger'"
+  [formControl]="$any(ngControl).control"  [type]="type"   [placeholder]="placeholder" required>
+
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <span *ngIf="ngControl.invalid" >
+      <i  class="fas fa-exclamation-triangle"></i>
+    </span>
+    <span *ngIf="!ngControl.invalid">
+      <i class="fas fa-check"></i>
+    </span>
+
+
+    </span>
+  </div>
+
+  <!-- <p class="help is-success">This username is available</p> -->
+  <ng-container *ngIf="ngControl?.invalid && (ngControl?.dirty || ngControl?.touched)">
+    <p class="help is-danger" *ngIf="ngControl?.errors?.['required']"> {{requiredMessage}} </p>
+    <p class="help is-danger" *ngIf="ngControl?.errors?.['minlength']">
+   En az {{minlength}} karakter uzunluğunda olmalıdır.
+  </p>
+  <p class="help is-danger" *ngIf="ngControl?.errors?.['maxlength']">
+    En fazla {{maxlength}} karakter uzunluğunda olmalıdır. </p>
+  </ng-container>
+
+</div>
+

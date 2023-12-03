@@ -1,3 +1,4 @@
 export interface JobModel {
-  title:string;
+  id?:number;
+  title?:string;
 }

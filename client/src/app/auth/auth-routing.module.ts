@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { JobComponent } from './job/job.component';
+import { DirectorComponent } from './director/director.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,9 @@ const routes: Routes = [
   },
   {
     path:'job',component:JobComponent
+  },
+  {
+    path:'director', component:DirectorComponent
   }
 ];
 

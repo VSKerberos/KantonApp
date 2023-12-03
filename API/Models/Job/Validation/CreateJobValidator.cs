@@ -8,7 +8,7 @@ public class CreateJobValidator : AbstractValidator<CreateJobDto>
          RuleFor(x => x.Title)
                 .NotNull()
                 .NotEmpty()
-                .Length(1,20)
+                .Length(1,50)
                 .WithMessage("Lütfen görev adını giriniz.");
     }
 

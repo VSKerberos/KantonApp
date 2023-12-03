@@ -9,11 +9,25 @@ import { GlobalConstants } from '../models/global-constants';
 })
 export class AdminService {
 
+  public jobUrl:string=`${GlobalConstants.BackEndConnection}jobs`;
   constructor(private http: HttpClient) { }
 
 
   listOfJobs(){
-    return this.http.get<JobModel[]>(`${GlobalConstants.BackEndConnection}jobs`);
+    return this.http.get<JobModel[]>(this.jobUrl);
+  }
+
+  saveJob(){
+    return this.http.post
+  }
+
+  addJob (job: JobModel) {
+    return this.http.post<JobModel>(this.jobUrl, job)
+
+  }
+
+  deleteJob(jobId:number) {
+    return this.http.delete(`${this.jobUrl}/${jobId}`)
   }
 
 

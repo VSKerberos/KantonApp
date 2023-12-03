@@ -6,16 +6,22 @@ import { LoginComponent } from './login/login.component';
 import { JobComponent } from './job/job.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from '../core/interceptors/loading.interceptor';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { DirectorComponent } from './director/director.component';
+import { TextInputComponent } from '../core/components/text-input/text-input.component';
 
 
 @NgModule({
   declarations: [
+
     LoginComponent,
-    JobComponent
+    JobComponent,
+    DirectorComponent,
+    TextInputComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AuthRoutingModule,
 
   ]
