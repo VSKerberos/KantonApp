@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JobModel } from '../models/job.model';
+import { DirectorModel, JobModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { GlobalConstants } from '../models/global-constants';
 export class AdminService {
 
   public jobUrl:string=`${GlobalConstants.BackEndConnection}jobs`;
+  public directorUrl:string = `${GlobalConstants.BackEndConnection}directors`
   constructor(private http: HttpClient) { }
 
 
@@ -29,6 +30,13 @@ export class AdminService {
   deleteJob(jobId:number) {
     return this.http.delete(`${this.jobUrl}/${jobId}`)
   }
+
+  addDirector(director:DirectorModel)
+    {
+
+      return this.http.post<DirectorModel>(this.directorUrl,director);
+
+    }
 
 
 }

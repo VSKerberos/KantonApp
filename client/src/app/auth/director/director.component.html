@@ -29,7 +29,7 @@
           <label class="label">Görev Adı</label>
           <div class="control">
          <div class="select is-rounded">
-          <select >
+          <select (change)="onChange($event)" >
             <option *ngFor="let item of avaliableJobs" [value]="item.id">{{item.title}}</option>
           </select>
         </div>
