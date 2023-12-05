@@ -19,6 +19,8 @@ public class GetDirectorDto
         public string JobTitle { get; set; }
 
         public int JobId { get; set; }
+
+        public Job job{ get; set; }
 }
 
 public class CreateBlockDirectorDto

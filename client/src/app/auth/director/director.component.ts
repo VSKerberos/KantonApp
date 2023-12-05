@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { forkJoin } from 'rxjs';
 import { DirectorModel, JobModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
 
@@ -12,6 +13,7 @@ import { AdminService } from 'src/app/core/services/admin.service';
 export class DirectorComponent implements OnInit {
 
   avaliableJobs: JobModel[]=[];
+  avaliableDirectors: DirectorModel[]=[];
   selectedJobId:any;
   directorForm = new FormGroup({
     secondName: new FormControl('', [ Validators.minLength(5),Validators.maxLength(35)]),
@@ -34,7 +36,7 @@ export class DirectorComponent implements OnInit {
     {
       let localDirector:DirectorModel= {
         name:this.firstName?.value || '',
-        surname:this.secondName?.value || '',
+        surName:this.secondName?.value || '',
         jobId : this.selectedJobId
 
         };
@@ -61,19 +63,49 @@ get secondName() {
 
 
   loadJobs(): void {
-    this.adminService.listOfJobs()
-    .subscribe(
-      {
-        next: response=> this.avaliableJobs = response,
-        error: error=> console.log(error),
-        complete:()=> {
-          console.log('Request has completed');
-          this.directorForm.patchValue({
-            firstName: ' '
-         });
-         }
 
-      }
-  );
+    const loadJobsAPI = this.adminService.listOfJobs();
+    const loadDirectorsAPI = this.adminService.listOfDirector();
+
+    forkJoin([loadJobsAPI, loadDirectorsAPI]) //we can use more that 2 api request
+            .subscribe(
+                result => {
+                    //this will return list of array of the result
+                    this.avaliableJobs= result[0];
+                    this.avaliableDirectors = result[1];
+                },
+                error=>{
+                  console.log(error);
+                }
+            );
+
+  //   this.adminService.listOfJobs()
+  //   .subscribe(
+  //     {
+  //       next: response=> this.avaliableJobs = response,
+  //       error: error=> console.log(error),
+  //       complete:()=> {
+  //         console.log('Request has completed');
+  //         this.directorForm.patchValue({
+  //           firstName: ' '
+  //        });
+  //        }
+
+  //     }
+  // );
+
+  /*
+    const firstAPI = this.http.get('https://jsonplaceholder.typicode.com/posts/1')
+        const secondAPI = this.http.get(`https://jsonplaceholder.typicode.com/posts`)
+
+        forkJoin([firstAPI, secondAPI]) //we can use more that 2 api request
+            .subscribe(
+                result => {
+                    //this will return list of array of the result
+                    this.firstApiResult = result[0];
+                    this.secondApiResult = result[1];
+                }
+            )
+  */
   }
 }

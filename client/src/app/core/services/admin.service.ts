@@ -38,5 +38,9 @@ export class AdminService {
 
     }
 
+    listOfDirector(){
+      return this.http.get<DirectorModel[]>(this.directorUrl)
+    }
+
 
 }

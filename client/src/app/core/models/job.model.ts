@@ -4,7 +4,9 @@ export interface JobModel {
 }
 
 export interface DirectorModel {
+  id?:number;
   name?:string;
-  surname?:string;
-  jobId:number
+  surName?:string;
+  jobId:number;
+  jobTitle?:string;
 }

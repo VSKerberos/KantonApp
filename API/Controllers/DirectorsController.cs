@@ -65,9 +65,25 @@ public async Task<ActionResult<GetDirectorDto>> GetDirector(int id)
 [HttpGet]
 public async Task<ActionResult<IEnumerable<GetDirectorDto>>> GetDirectors(){
 
-    var directors =  await directorRepository.GetAllAsync();
-    var records = mapper.Map<List<GetDirectorDto>>(directors);
-    return Ok(records);   
+    var directors =  await directorRepository.GetDetails();
+    List<GetDirectorDto> allItems = new List<GetDirectorDto>();
+
+foreach(var item in directors)
+{
+    var local = new GetDirectorDto{
+Id = item.Id,
+Name= item.Name,
+SurName = item.Surname,
+JobId = item.job.Id,
+JobTitle = item.job.Title
+    };
+
+    allItems.Add(local);
+
+}
+    
+   // var records = mapper.Map<List<GetDirectorDto>>(directors);
+    return Ok(allItems);   
 }
 
 // Put: api/Directors/5

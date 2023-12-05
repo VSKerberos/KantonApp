@@ -10,13 +10,13 @@ public class DirectorsRepository : GenericRepository<Director>, IDirectorReposit
         this.context = context;
     }
 
-    public  async Task<Director> GetDetails(int id)
+    public  async Task<List<Director>> GetDetails()
     {
         
 // Get employees & departments
 return await context.Directors.Include(e => e.job)
                                  .OrderBy(e => e.Name)   
-                                 .FirstOrDefaultAsync();
+                                 .ToListAsync();
 
 
     }
