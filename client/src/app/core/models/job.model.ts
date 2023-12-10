@@ -10,3 +10,15 @@ export interface DirectorModel {
   jobId:number;
   jobTitle?:string;
 }
+export interface BlockDirectorModel {
+  id?:number;
+  jobId:number;
+  islandId:number,
+  name?:string;
+  surName?:string;
+}
+
+export interface IslandModel {
+  id?:number;
+  name:string;
+}

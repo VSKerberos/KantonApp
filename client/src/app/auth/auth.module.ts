@@ -9,6 +9,7 @@ import { LoadingInterceptor } from '../core/interceptors/loading.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DirectorComponent } from './director/director.component';
 import { TextInputComponent } from '../core/components/text-input/text-input.component';
+import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TextInputComponent } from '../core/components/text-input/text-input.com
     LoginComponent,
     JobComponent,
     DirectorComponent,
-    TextInputComponent
+    TextInputComponent,
+    BlockdirectorComponent
   ],
   imports: [
     CommonModule,

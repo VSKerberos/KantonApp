@@ -12,6 +12,20 @@ public class BlockDirectorRepository : GenericRepository<IslandDirector>, IBlock
         this.context = context;
     }
 
+    public Task<List<IslandDirector>> GetAllBlockDirectors()
+    {
+        return context.IslandDirectors
+        .Include(i=>i.Island)
+        .ThenInclude(x=>x.IslandDirectors)
+        .ThenInclude(y=>y.Job)
+        .ToListAsync();
+    }
+
+    public async Task<List<Island>> GetAllIslands()
+    {
+       return await context.Islands.ToListAsync();
+    }
+
     public Task<IslandDirector> GetDetails(int id)
     {
       

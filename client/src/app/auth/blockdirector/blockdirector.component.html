@@ -3,23 +3,23 @@
   <div class="card">
    <header class="card-header">
      <p class="card-header-title">
-       Eray Sitesi Yönetim Kurulu Tanımlama Sayfası
+       Eray Sitesi Temsilciler Kurulu Tanımlama Sayfası
      </p>
 
    </header>
    <div class="card-content">
-    <form novalidate [formGroup]="directorForm">
+    <form novalidate [formGroup]="blockDirectorForm">
 
 
       <app-text-input
-       [formControl]='directorForm.controls["firstName"]'
+       [formControl]='blockDirectorForm.controls["firstName"]'
        [placeholder]="'Adı'"
        [label]="'Adı'"
        [requiredMessage]="'Adı bilgisi zorunludur'"
         [minlength]='"3"' [maxlength]='"35"'></app-text-input>
 
         <app-text-input
-        [formControl]='directorForm.controls["secondName"]'
+        [formControl]='blockDirectorForm.controls["secondName"]'
         [placeholder]="'Soyadı'"
         [label]="'Soyadı'"
         [requiredMessage]="'Soyad bilgisi zorunludur'"
@@ -37,12 +37,26 @@
       </div>
       </div>
 
+      <div class="field">
+        <label class="label">Görev Aldığı Ada</label>
+        <div class="control">
+       <div class="select is-rounded">
+        <select (change)="onIslandChange($event)" >
+          <option selected value="0">-- Seçiniz --</option>
+          <option *ngFor="let item of avaliableIslands" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    </div>
+
 
     </form>
   </div>
   <footer class="card-footer">
     <div class="card-footer-item">
-      <button class="button is-primary" type="submit" (click)="onSubmit()" [disabled]="directorForm.invalid" >Kaydet</button>
+      <div class="control">
+      <button class="button is-primary" type="submit" (click)="onSubmit()" [disabled]="blockDirectorForm.invalid" >Kaydet</button>
+    </div>
     </div>
   </footer>
  </div>
@@ -60,14 +74,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of avaliableDirectors">
+          <tr *ngFor="let item of avaliableBlockDirectors">
             <td data-label="Name">{{ item.name }} </td>
             <td data-label="Name">{{ item.surName }} </td>
-            <td data-label="Name">{{ item.jobTitle }} </td>
+
 
             <td class="is-actions-cell">
               <div class="buttons is-right">
-                <button class="button is-small is-danger jb-modal" (click)="deleteDirector(item.id)" data-target="sample-modal" type="button">
+                <button class="button is-small is-danger jb-modal" (click)="deleteBlockDirector(item.id)" data-target="sample-modal" type="button">
                   <span class="icon"><i class="mdi mdi-trash-can"></i>Sil</span>
                 </button>
               </div>

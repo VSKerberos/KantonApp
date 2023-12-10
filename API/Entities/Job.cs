@@ -5,7 +5,7 @@ public class Job
 
     public string Title { get; set; }
 
-    public  Director? Director {get;set;}
+    public ICollection<Director> Directors {get;set;}
 
 
 }

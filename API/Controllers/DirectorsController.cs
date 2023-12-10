@@ -74,8 +74,7 @@ foreach(var item in directors)
 Id = item.Id,
 Name= item.Name,
 SurName = item.Surname,
-JobId = item.job.Id,
-JobTitle = item.job.Title
+JobTitle = item.Job.Title
     };
 
     allItems.Add(local);

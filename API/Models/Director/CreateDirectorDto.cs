@@ -46,4 +46,10 @@ public class GetBlockDirectorDto
 
 }
 
+public class GetIslandDto
+{
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+}
 

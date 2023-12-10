@@ -9,8 +9,7 @@ public class Director
 
     public string Surname { get; set; }
 
-    public virtual Job job {get;set;}
-
-    public int JobId { get; set; }
+    public int JobId {get;set;}
+    public Job Job {get;set;} = null;
     
 }   

@@ -16,8 +16,8 @@ export class DirectorComponent implements OnInit {
   avaliableDirectors: DirectorModel[]=[];
   selectedJobId:any;
   directorForm = new FormGroup({
-    secondName: new FormControl('', [ Validators.minLength(5),Validators.maxLength(35)]),
-    firstName: new FormControl('', [Validators.minLength(5), Validators.maxLength(35)]),
+    secondName: new FormControl('', [ Validators.minLength(2),Validators.maxLength(35)]),
+    firstName: new FormControl('', [Validators.minLength(3), Validators.maxLength(35)]),
 
   });
 
@@ -32,6 +32,11 @@ export class DirectorComponent implements OnInit {
 
 
   onSubmit(){
+    if(!this.selectedJobId)
+    {
+      this.toaster.error('Lütfen görev seçiniz.');
+      return;
+    }
     if(this.directorForm.valid)
     {
       let localDirector:DirectorModel= {
@@ -41,14 +46,20 @@ export class DirectorComponent implements OnInit {
 
         };
       this.adminService.addDirector(localDirector).subscribe(
-        (response) => { this.toaster.success('Başarılı bir şekilde eklendi')},
+        (response) => {
+          this.toaster.success('Başarılı bir şekilde eklendi');
+          this.loadJobs();
+          this.clearForms();
+        },
         (error) => { console.log(error); });
 
   }
 }
 
 onChange(value: any) {
+
   this.selectedJobId = value.target.value;
+
 }
 
 get firstName() {
@@ -58,7 +69,13 @@ get firstName() {
 get secondName() {
   return this.directorForm.get('secondName');
 }
-
+clearForms()
+{
+  this.directorForm.patchValue({
+    firstName: ' ',
+    secondName: ' '
+ });
+}
 
 
 
@@ -78,34 +95,19 @@ get secondName() {
                   console.log(error);
                 }
             );
+  }
 
-  //   this.adminService.listOfJobs()
-  //   .subscribe(
-  //     {
-  //       next: response=> this.avaliableJobs = response,
-  //       error: error=> console.log(error),
-  //       complete:()=> {
-  //         console.log('Request has completed');
-  //         this.directorForm.patchValue({
-  //           firstName: ' '
-  //        });
-  //        }
-
-  //     }
-  // );
-
-  /*
-    const firstAPI = this.http.get('https://jsonplaceholder.typicode.com/posts/1')
-        const secondAPI = this.http.get(`https://jsonplaceholder.typicode.com/posts`)
-
-        forkJoin([firstAPI, secondAPI]) //we can use more that 2 api request
-            .subscribe(
-                result => {
-                    //this will return list of array of the result
-                    this.firstApiResult = result[0];
-                    this.secondApiResult = result[1];
-                }
-            )
-  */
+  deleteDirector(directorId:any)
+  {
+    this.adminService.deleteDirector(directorId)
+    .subscribe({
+        next: data => {
+          this.toaster.success('Başarılı bir şekilde silindi');
+            this.loadJobs();
+        },
+        error: error => {
+            console.error('There was an error!', error);
+        }
+    });
   }
 }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Drawing;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,6 +50,15 @@ public async Task<ActionResult<IEnumerable<GetBlockDirectorDto>>> GetBlockDirect
     var blockDirectors =  await blockDirectorRepository.GetAllAsync();
     var records = mapper.Map<List<GetBlockDirectorDto>>(blockDirectors);
     return Ok(records);   
+}
+
+// GET: api/Islands
+[HttpGet]
+public async Task<ActionResult<IEnumerable<GetIslandDto>>> GetIslands(){
+
+    var islands = await blockDirectorRepository.GetAllIslands();
+    var records = mapper.Map<List<GetIslandDto>>(islands);
+    return Ok(records);
 }
 
 // Put: api/BlockDirectors/5

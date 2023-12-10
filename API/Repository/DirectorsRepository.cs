@@ -14,7 +14,7 @@ public class DirectorsRepository : GenericRepository<Director>, IDirectorReposit
     {
         
 // Get employees & departments
-return await context.Directors.Include(e => e.job)
+return await context.Directors.Include(e => e.Job)
                                  .OrderBy(e => e.Name)   
                                  .ToListAsync();
 

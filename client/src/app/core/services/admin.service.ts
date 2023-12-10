@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DirectorModel, JobModel } from '../models/job.model';
+import { BlockDirectorModel, DirectorModel, IslandModel, JobModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 
 @Injectable({
@@ -11,6 +11,9 @@ export class AdminService {
 
   public jobUrl:string=`${GlobalConstants.BackEndConnection}jobs`;
   public directorUrl:string = `${GlobalConstants.BackEndConnection}directors`
+  public blockDirectorUrl:string = `${GlobalConstants.BackEndConnection}blockdirectors`
+  public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`
+
   constructor(private http: HttpClient) { }
 
 
@@ -42,5 +45,24 @@ export class AdminService {
       return this.http.get<DirectorModel[]>(this.directorUrl)
     }
 
+    deleteDirector(directorId:number) {
+      return this.http.delete(`${this.directorUrl}/${directorId}`);
+    }
 
+    addBlockDirector(blockDirector:BlockDirectorModel)
+    {
+
+      return this.http.post<BlockDirectorModel>(this.blockDirectorUrl,blockDirector);
+    }
+
+    listOfBlockDirector(){
+      return this.http.get<BlockDirectorModel[]>(this.blockDirectorUrl);
+    }
+
+    deleteBlockDirector(blockDirectorId:number) {
+      return this.http.delete(`${this.blockDirectorUrl}/${blockDirectorId}`);
+    }
+    listOfIslands(){
+      return this.http.get<IslandModel[]>(this.IslandUrl);
+    }
 }
