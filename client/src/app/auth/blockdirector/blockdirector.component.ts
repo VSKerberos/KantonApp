@@ -5,6 +5,7 @@ import { forkJoin } from 'rxjs';
 import { BlockDirectorModel, IslandModel, JobModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
 
+
 @Component({
   selector: 'app-blockdirector',
   templateUrl: './blockdirector.component.html',
@@ -16,7 +17,8 @@ export class BlockdirectorComponent {
   selectedIsland:any;
   avaliableJobs: JobModel[]=[];
   avaliableBlockDirectors:BlockDirectorModel[]=[];
-  avaliableIslands:IslandModel[]=[];
+  avaliableIslands:any;
+
 
   blockDirectorForm = new FormGroup({
     secondName: new FormControl('', [ Validators.minLength(5),Validators.maxLength(35)]),
@@ -47,21 +49,29 @@ export class BlockdirectorComponent {
 
   ngOnInit(): void {
     this.loadJobs();
+    this.loadIslands();
+  }
+
+  loadIslands(){
+      this.adminService.loadIslands().subscribe(res=>{
+
+        this.avaliableIslands = res;
+      });
   }
 
   loadJobs(): void {
 
     const loadJobsAPI = this.adminService.listOfJobs();
     const loadBlockDirectorsAPI = this.adminService.listOfBlockDirector();
-    const loadIslandsAPI = this.adminService.listOfIslands();
+    //const loadIslandsAPI = this.adminService.listOfIslands();
 
-    forkJoin([loadJobsAPI, loadBlockDirectorsAPI,loadIslandsAPI]) //we can use more that 2 api request
+    forkJoin([loadJobsAPI, loadBlockDirectorsAPI]) //we can use more that 2 api request
             .subscribe(
                 result => {
                     //this will return list of array of the result
                     this.avaliableJobs= result[0];
                     this.avaliableBlockDirectors = result[1];
-                    this.avaliableIslands = result[2];
+                   // this.avaliableIslands = result[2];
                 },
                 error=>{
                   console.log(error);

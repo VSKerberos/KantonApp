@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { JobComponent } from './job/job.component';
 import { DirectorComponent } from './director/director.component';
+import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path:'director', component:DirectorComponent
+  },
+  {
+    path:'blockdirector', component:BlockdirectorComponent
   }
 ];
 

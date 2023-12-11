@@ -13,6 +13,7 @@ export class AdminService {
   public directorUrl:string = `${GlobalConstants.BackEndConnection}directors`
   public blockDirectorUrl:string = `${GlobalConstants.BackEndConnection}blockdirectors`
   public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`
+  public   url:string='/assets/islands.json';
 
   constructor(private http: HttpClient) { }
 
@@ -64,5 +65,9 @@ export class AdminService {
     }
     listOfIslands(){
       return this.http.get<IslandModel[]>(this.IslandUrl);
+    }
+
+    loadIslands(){
+      return this.http.get(this.url);
     }
 }

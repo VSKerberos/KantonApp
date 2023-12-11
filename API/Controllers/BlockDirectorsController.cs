@@ -52,14 +52,6 @@ public async Task<ActionResult<IEnumerable<GetBlockDirectorDto>>> GetBlockDirect
     return Ok(records);   
 }
 
-// GET: api/Islands
-[HttpGet]
-public async Task<ActionResult<IEnumerable<GetIslandDto>>> GetIslands(){
-
-    var islands = await blockDirectorRepository.GetAllIslands();
-    var records = mapper.Map<List<GetIslandDto>>(islands);
-    return Ok(records);
-}
 
 // Put: api/BlockDirectors/5
 [HttpPut("{id}")]
