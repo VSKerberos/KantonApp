@@ -21,8 +21,8 @@ export class BlockdirectorComponent {
 
 
   blockDirectorForm = new FormGroup({
-    secondName: new FormControl('', [ Validators.minLength(5),Validators.maxLength(35)]),
-    firstName: new FormControl('', [Validators.minLength(5), Validators.maxLength(35)]),
+    secondName: new FormControl('', [ Validators.minLength(2),Validators.maxLength(35)]),
+    firstName: new FormControl('', [Validators.minLength(3), Validators.maxLength(35)]),
 
   });
 
@@ -30,6 +30,14 @@ export class BlockdirectorComponent {
   constructor(private adminService:AdminService, private toaster:ToastrService)
   {
 
+  }
+
+  get firstName() {
+    return this.blockDirectorForm.get('firstName');
+  }
+
+  get secondName() {
+    return this.blockDirectorForm.get('secondName');
   }
 
   onChange(value: any) {
@@ -44,8 +52,37 @@ export class BlockdirectorComponent {
 
   onSubmit() {
 
+console.log(`selected job: ${this.selectedJobId}`);
+console.log(`selected Island: ${this.selectedIsland}`);
+
+if(this.blockDirectorForm.valid)
+{
+  let localBlockDirector:BlockDirectorModel= {
+    name:this.firstName?.value || '',
+    surname:this.secondName?.value || '',
+    jobId : this.selectedJobId,
+    islandId: this.selectedIsland
+    };
+
+    this.adminService.addBlockDirector(localBlockDirector).subscribe(
+      (response) => {
+        this.toaster.success('Başarılı bir şekilde eklendi');
+        this.clearForms();
+        this.loadJobs();
+      },
+      (error) => { console.log(error); });
+}
 
   }
+
+  clearForms()
+{
+  this.blockDirectorForm.patchValue({
+    firstName: ' ',
+    secondName: ' '
+ });
+}
+
 
   ngOnInit(): void {
     this.loadJobs();

@@ -47,7 +47,7 @@ public async Task<ActionResult<GetBlockDirectorDto>> GetBlockDirector(int id)
 [HttpGet]
 public async Task<ActionResult<IEnumerable<GetBlockDirectorDto>>> GetBlockDirectors(){
 
-    var blockDirectors =  await blockDirectorRepository.GetAllAsync();
+    var blockDirectors =  await blockDirectorRepository.GetAllBlockDirectors();
     var records = mapper.Map<List<GetBlockDirectorDto>>(blockDirectors);
     return Ok(records);   
 }

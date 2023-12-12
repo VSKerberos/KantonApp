@@ -23,7 +23,7 @@
         [placeholder]="'Soyadı'"
         [label]="'Soyadı'"
         [requiredMessage]="'Soyad bilgisi zorunludur'"
-         [minlength]='"2"' [maxlength]='"40"'></app-text-input>
+         [minlength]='"1"' [maxlength]='"40"'></app-text-input>
 
          <div class="field">
           <label class="label">Görev Adı</label>
@@ -70,14 +70,16 @@
           <tr>
             <th>Adı</th>
             <th>Soyadı</th>
+            <th>Blok</th>
             <th>Görevi</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let item of avaliableBlockDirectors">
             <td data-label="Name">{{ item.name }} </td>
-            <td data-label="Name">{{ item.surName }} </td>
-
+            <td data-label="Name">{{ item.surname }} </td>
+            <td data-label="Name">{{ item.islandName }} </td>
+            <td data-label="Name">{{ item.jobTitle }} </td>
 
             <td class="is-actions-cell">
               <div class="buttons is-right">

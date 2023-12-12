@@ -15,7 +15,9 @@ export interface BlockDirectorModel {
   jobId:number;
   islandId:number,
   name?:string;
-  surName?:string;
+  surname?:string;
+  islandName?:string;
+  jobTitle?:string;
 }
 
 export interface IslandModel {
