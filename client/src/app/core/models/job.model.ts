@@ -24,3 +24,12 @@ export interface IslandModel {
   id?:number;
   name:string;
 }
+
+export interface ShowRoomModel {
+  id?:number;
+  header:string;
+desc:string;
+path:string;
+status:number;
+createdDate:Date;
+}

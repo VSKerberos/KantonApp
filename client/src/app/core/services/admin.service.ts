@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { BlockDirectorModel, DirectorModel, IslandModel, JobModel } from '../models/job.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, switchMap } from 'rxjs';
+import { BlockDirectorModel, DirectorModel, IslandModel, JobModel, ShowRoomModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,16 @@ import { GlobalConstants } from '../models/global-constants';
 export class AdminService {
 
   public jobUrl:string=`${GlobalConstants.BackEndConnection}jobs`;
-  public directorUrl:string = `${GlobalConstants.BackEndConnection}directors`
-  public blockDirectorUrl:string = `${GlobalConstants.BackEndConnection}blockdirectors`
-  public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`
+  public directorUrl:string = `${GlobalConstants.BackEndConnection}directors`;
+  public blockDirectorUrl:string = `${GlobalConstants.BackEndConnection}blockdirectors`;
+  public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`;
+  public fileUrl:string = `${GlobalConstants.BackEndConnection}files/uploadfile`;
+  public showCaseUrl:string= `${GlobalConstants.BackEndConnection}showrooms`;
+  public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files/deletefile`;
+
   public   url:string='/assets/islands.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toaster:ToastrService) { }
 
 
   listOfJobs(){
@@ -70,4 +75,57 @@ export class AdminService {
     loadIslands(){
       return this.http.get(this.url);
     }
+
+    uploadFile(formData:FormData){
+      const httpOptions = {
+        headers: new HttpHeaders({
+
+          'Content-Disposition':'multipart/form-data',
+          'Accept':'application/json'
+        })
+      };
+
+      return this.http.post(this.fileUrl,formData, httpOptions);
+    }
+
+    switchMapAddForm(formData:FormData,showRoom:ShowRoomModel)
+    {
+      const httpOptions = {
+        headers: new HttpHeaders({
+
+          'Content-Disposition':'multipart/form-data',
+          'Accept':'application/json'
+        })
+      };
+
+
+  return   this.http.post(this.fileUrl,formData, httpOptions)
+  .pipe(
+    switchMap(result => {
+      /* do something with result */
+      showRoom.path = result.toString();
+      return this.http.post(this.showCaseUrl,showRoom)
+    })
+  );
+    }
+
+    addShowRoom(showRoom:ShowRoomModel)
+    {
+      return this.http.post<BlockDirectorModel>(this.showCaseUrl,showRoom);
+    }
+
+    deleteShowRoom(showRoomId:number){
+      return this.http.delete(`${this.showCaseUrl}/${showRoomId}`);
+    }
+
+    listShowRoom(){
+      return this.http.get<ShowRoomModel[]>(this.showCaseUrl);
+    }
+
+    switchMapDeleteForm(id:number){
+
+      return this.http.delete(`${this.deleteFileUrl}/${id}`);
+
+    }
+
 }

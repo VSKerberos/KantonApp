@@ -1,0 +1,126 @@
+<div class="p-1 top-20">
+  <form novalidate [formGroup]="showcaseForm">
+
+  <div class="field">
+    <div class="control">
+
+      <app-text-input
+      [formControl]='showcaseForm.controls["header"]'
+      [placeholder]="'Başlık bilgisi'"
+      [label]="'Başlık bilgisi'"
+      [requiredMessage]="'Başlık bilgisi  zorunludur'"
+       [minlength]='"5"' [maxlength]='"40"'></app-text-input>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control has-icons-left has-icons-right">
+      <app-text-input
+      [formControl]='showcaseForm.controls["desc"]'
+      [placeholder]="'Detay açıklama bilgisi'"
+      [label]="'Detay açıklama'"
+      [requiredMessage]="'Detay açıklama zorunludur'"
+       [minlength]='"5"' [maxlength]='"40"'></app-text-input>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </div>
+    <p class="help is-success">This username is available</p>
+  </div>
+
+
+
+  <div class="field">
+    <label class="label">Yüklenecek Dosya</label>
+    <div class="file is-warning has-name is-boxed">
+      <label class="file-label">
+        <input class="file-input" type="file" name="resume" (change)="handleFileInput($any($event.target).files)">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Info file…
+          </span>
+        </span>
+
+      </label>
+
+    </div>
+  </div>
+
+  <div class="field"  *ngIf="uploadFile">
+    <span class="file-name">
+     Dosya Adı: {{uploadFile.name}}
+    </span>
+    <span class="file-name">
+     Dosya Tipi: {{uploadFile.type}}
+    </span>
+    <span class="file-name">
+      Dosya Tipi: {{uploadFile.size | filesize }}
+    </span>
+  </div>
+
+
+
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" (click)="upload()" [disabled]="showcaseForm.invalid">Kaydet</button>
+    </div>
+    <!-- <div class="control">
+      <button class="button is-link is-light">Cancel</button>
+    </div> -->
+  </div>
+  </form>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="b-table">
+        <div class="table-wrapper has-mobile-cards">
+          <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+              <th>Başlık</th>
+              <th>Detay</th>
+              <th>Dosya Yolu</th>
+              <th>Kayıt Tarihi</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of avaliableShowroom">
+              <td data-label="Name">{{ item.header }} </td>
+              <td data-label="Name">{{ item.desc }} </td>
+              <td data-label="Name">{{ item.path }} </td>
+              <td data-label="Name">{{ item.createdDate | date: 'dd/MM/yyyy' }} </td>
+
+
+              <td class="is-actions-cell">
+                <div class="buttons is-right">
+                  <button class="button is-small is-danger jb-modal" (click)="deleteBlockShowRoom(item.id)" data-target="sample-modal" type="button">
+                    <span class="icon"><i class="mdi mdi-trash-can"></i>Sil</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

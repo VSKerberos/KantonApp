@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { JobComponent } from './job/job.component';
 import { DirectorComponent } from './director/director.component';
 import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'blockdirector', component:BlockdirectorComponent
+  },
+  {
+    path:'showcase', component:ShowcaseComponent
   }
 ];
 

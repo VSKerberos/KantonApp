@@ -24,6 +24,7 @@ public class ShowRoomsController : ControllerBase
 public async Task<ActionResult<GetShowRoomDto>> PostLink(CreateShowRoomDto createShowRoomDto)
 {
     var showRoom = mapper.Map<ShowRoom>(createShowRoomDto);
+    showRoom.CreatedDate = showRoom.CreatedDate = DateTime.Now;
     await showRoomRepository.AddAsync(showRoom);
     return CreatedAtAction("GetShowRoom", new {id = showRoom.Id},showRoom);
 }

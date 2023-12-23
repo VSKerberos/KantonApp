@@ -10,23 +10,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DirectorComponent } from './director/director.component';
 import { TextInputComponent } from '../core/components/text-input/text-input.component';
 import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
+import { FilesizePipe } from "../core/pipes/filesize.pipe";
 
 
 @NgModule({
-  declarations: [
-
-    LoginComponent,
-    JobComponent,
-    DirectorComponent,
-    TextInputComponent,
-    BlockdirectorComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    AuthRoutingModule,
-
-  ]
-
+    declarations: [
+        LoginComponent,
+        JobComponent,
+        DirectorComponent,
+        TextInputComponent,
+        BlockdirectorComponent,
+        ShowcaseComponent
+    ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        AuthRoutingModule,
+        FilesizePipe
+    ]
 })
 export class AuthModule { }
