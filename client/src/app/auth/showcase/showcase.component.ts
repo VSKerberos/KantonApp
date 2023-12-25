@@ -88,7 +88,8 @@ export class ShowcaseComponent implements OnInit {
     // });
 
     this.service.switchMapDeleteForm(id).subscribe(res=>{
-      console.log(res);
+      this.toaster.success('Başarılı bir şekilde silindi');
+      this.loadShowRooms();
     })
   }
 

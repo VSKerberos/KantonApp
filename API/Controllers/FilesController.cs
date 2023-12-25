@@ -12,9 +12,10 @@ public class FilesController : ControllerBase
     private readonly IConfiguration iConfig;
     private readonly IShowRoomRepository showRoomRepository;
 
-    public FilesController(IConfiguration iConfig)
+    public FilesController(IConfiguration iConfig,IShowRoomRepository showRoomRepository)
     {
         this.iConfig = iConfig;
+         this.showRoomRepository = showRoomRepository;
     }
 
 [HttpPost]
@@ -32,11 +33,6 @@ public async Task<IActionResult> UploadFile(IFormFile file, CancellationToken ca
     return Ok(result);
     else
     return NoContent();
-}
-
-public FilesController(IShowRoomRepository showRoomRepository)
-{
-        this.showRoomRepository = showRoomRepository;
 }
 
     private async Task<string> WriteFile(IFormFile file)
@@ -102,10 +98,9 @@ public FilesController(IShowRoomRepository showRoomRepository)
 
 // Delete: api/file/5
 [HttpDelete("{id}")]
-[Route("DeleteFile")]
-    public async Task<IActionResult> DeleteFile(int recordId)
+    public async Task<IActionResult> DeleteFile(int id)
     {
-             var showRoom = await showRoomRepository.GetAsync(recordId);
+             var showRoom = await showRoomRepository.GetAsync(id);
 
      if(showRoom == null)
      {
@@ -123,6 +118,10 @@ public FilesController(IShowRoomRepository showRoomRepository)
             
             throw ex;
         }
+
+        await showRoomRepository.DeleteAsync(id);
+        return NoContent();
+
      }
 
      return NoContent();

@@ -16,7 +16,7 @@ export class AdminService {
   public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`;
   public fileUrl:string = `${GlobalConstants.BackEndConnection}files/uploadfile`;
   public showCaseUrl:string= `${GlobalConstants.BackEndConnection}showrooms`;
-  public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files/deletefile`;
+  public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
 
   public   url:string='/assets/islands.json';
 
