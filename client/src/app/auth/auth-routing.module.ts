@@ -5,6 +5,8 @@ import { JobComponent } from './job/job.component';
 import { DirectorComponent } from './director/director.component';
 import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
+import { LinksComponent } from './links/links.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,12 @@ const routes: Routes = [
   },
   {
     path:'showcase', component:ShowcaseComponent
+  },
+  {
+    path:'usefullinks', component:LinksComponent
+  },
+  {
+    path:'contact', component:ContactComponent
   }
 ];
 

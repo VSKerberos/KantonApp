@@ -33,3 +33,18 @@ path:string;
 status:number;
 createdDate:Date;
 }
+
+export interface UsefulLinksModel {
+  id?:number;
+  title:string;
+  url:string;
+  desc:string;
+}
+
+export interface ContactModel {
+  id?:number;
+  name:string;
+  surname:string;
+  email:string;
+  desc:string;
+}

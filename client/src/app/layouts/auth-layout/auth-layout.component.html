@@ -3,35 +3,34 @@
 <nav class="navbar is-fixed-top box-shadow-y">
 
   <div class="navbar-brand">
-    <a href="#" class="navbar-burger toggler">
+    <!-- <a href="javascript: void(0)" class="navbar-burger burger" [ngClass]="isclicked ? 'navbar-burger burger is-active' :'navbar-burger burger '"   >
+      <span></span><span></span><span></span><span></span><span></span>
       <span></span>
       <span></span>
       <span></span>
-      <span></span>
-    </a>
-<a href="#" class="navbar-item has-text-weight-bold has-text-black">Second Hamburger Menu</a>
+    </a> -->
+<a href="#" class="navbar-item has-text-weight-bold has-text-black" >Akanton Eray Sitesi Yönetim Paneli</a>
 
-<a href="#" class="navbar-burger nav-toggler">
-  <span></span>
-  <span></span>
+<a href="javascript: void(0)" class="navbar-burger burger" [ngClass]="isclicked ? 'navbar-burger burger is-active' :'navbar-burger burger '" (click)="toggle($event)" >
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
   <span></span>
   <span></span>
 </a>
 
   </div>
 
-  <div class="navbar-menu has-background-white">
-    <div class="navbar-start">
-      <a href="#" class="navbar-item">
-        <i class="fas fa-home icon"></i>
-         Home
-      </a>
-      <a href="#" class="navbar-item">Features</a>
-      <a href="#" class="navbar-item">Pricing</a>
-      <a href="#" class="navbar-item">About</a>
+  <div class="navbar-menu has-background-white" [ngClass]="isclicked ? 'navbar-menu has-background-white is-active' :'navbar-menu has-background-white'">
+    <div class="navbar-start" *ngIf="isclicked">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/showcase">Gündem Köşesi</a>
+      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/director"> Yönetim Kurulu Sayfası</a>
+      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/blockdirector" >Temsilciler Kurulu Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/job">Görev Tanımlama Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/usefullinks">Yararlı Linkler Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/contact">Bize Ulaşın Mesajları Sayfası</a>
     </div>
 
-    <div class="navbar-end">
+    <!-- <div class="navbar-end">
       <a href="#" class="navbar-item">Notifications</a>
       <div class="navbar-item has-dropdown is-hoverable">
         <a href="#" class="navbar-link">1st</a>
@@ -42,7 +41,7 @@
           <a href="#" class="navbar-item">Log Out</a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 </nav>
@@ -56,42 +55,48 @@
     <div class="menu-container px-1 has-background-white custom-bg">
       <div class="menu-wrapper py-1">
         <aside class="menu">
-          <p class="menu-label">
-            General
-          </p>
+
           <ul class="menu-list">
-            <li><a>
-            <i class="fas fa-tachometer-alt icon" routerLink="/dashboard"></i>
-              Dashboard
-            </a></li>
-            <li><a>Customers</a></li>
+
           </ul>
           <p class="menu-label">
-            Administration
+
+            Yönetim Paneli
           </p>
           <ul class="menu-list">
-            <li><a>Team Settings</a></li>
             <li>
-              <a class="has-background-primary">İçerik Düzenleme Sayfaları</a>
+              <a class="has-background-primary">
+
+                İçerik Düzenleme Sayfaları</a>
               <ul>
-                <li><a href="#" routerLinkActive="is-active"></a></li>
-                <li><a href="#">Denetim Kurulu Sayfası</a></li>
+                <li><a routerLinkActive="is-active" routerLink="admin/showcase">
+                  <i class="fas fa-solid fa-industry"></i>
+                  Gündem Köşesi</a></li>
+                <li><a routerLinkActive="is-active" routerLink="admin/director">
+                  <i class="fas fa-thin fa-address-card"></i>
+                  Yönetim Kurulu Sayfası</a></li>
+                <li><a routerLinkActive="is-active" routerLink="admin/blockdirector" >
+                  <i class="fas fa-thin fa-network-wired"></i>
+                  Temsilciler Kurulu Sayfası</a></li>
+                <li><a routerLinkActive="is-active" routerLink="admin/job">
+                  <i class="fas fa-solid fa-file"></i>
+                  Görev Tanımlama Sayfası</a></li>
+                <li><a routerLinkActive="is-active" routerLink="admin/usefullinks">
+                  <i class="fas fa-solid fa-tags"></i>
+                  Yararlı Linkler Sayfası</a></li>
+                <li>
+
+                  <a routerLinkActive="is-active" routerLink="admin/contact">
+                    <i class=" fas fa-thin fa-envelope"></i>
+                    Bize Ulaşın Mesajları Sayfası</a></li>
+
                 <li><a href="#"></a></li>
               </ul>
             </li>
-            <li><a href="#" routerLinkActive="is-active" routerLink="admin/showcase">Gündem Köşesi</a></li>
-            <li><a href="#" routerLinkActive="is-active" routerLink="admin/director">Yönetim Kurulu Sayfası</a></li>
-            <li><a routerLinkActive="is-active" routerLink="admin/blockdirector" >Temsilciler Kurulu Sayfası</a></li>
-            <li><a href="#" routerLinkActive="is-active" routerLink="admin/job">Görev Tanımlama Sayfası</a></li>
+
+
           </ul>
-          <p class="menu-label">
-            Transactions
-          </p>
-          <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
-          </ul>
+
         </aside>
       </div>
     </div>

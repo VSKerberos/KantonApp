@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, switchMap } from 'rxjs';
-import { BlockDirectorModel, DirectorModel, IslandModel, JobModel, ShowRoomModel } from '../models/job.model';
+import { BlockDirectorModel, ContactModel, DirectorModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,6 +16,9 @@ export class AdminService {
   public IslandUrl:string = `${GlobalConstants.BackEndConnection}islands`;
   public fileUrl:string = `${GlobalConstants.BackEndConnection}files/uploadfile`;
   public showCaseUrl:string= `${GlobalConstants.BackEndConnection}showrooms`;
+  public usefulLinkUrl:string= `${GlobalConstants.BackEndConnection}links`;
+  public contactsUrl:string = `${GlobalConstants.BackEndConnection}contacts`;
+
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
 
   public   url:string='/assets/islands.json';
@@ -125,7 +128,27 @@ export class AdminService {
     switchMapDeleteForm(id:number){
 
       return this.http.delete(`${this.deleteFileUrl}/${id}`);
+    }
 
+    addUsefulLink(usefulLink:UsefulLinksModel)
+    {
+      return this.http.post<UsefulLinksModel>(this.usefulLinkUrl,usefulLink);
+    }
+
+    listOfUsefulLinks(){
+      return this.http.get<UsefulLinksModel[]>(this.usefulLinkUrl);
+    }
+
+    deleteUsefulLink(linkId:number){
+      return this.http.delete(`${this.usefulLinkUrl}/${linkId}`);
+    }
+
+    listOfContacts(){
+      return this.http.get<ContactModel[]>(this.contactsUrl);
+    }
+
+    deleteContact(contactId:number) {
+      return this.http.delete(`${this.contactsUrl}/${contactId}`);
     }
 
 }

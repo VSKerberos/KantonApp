@@ -12,6 +12,8 @@ import { TextInputComponent } from '../core/components/text-input/text-input.com
 import { BlockdirectorComponent } from './blockdirector/blockdirector.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { FilesizePipe } from "../core/pipes/filesize.pipe";
+import { LinksComponent } from './links/links.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { FilesizePipe } from "../core/pipes/filesize.pipe";
         DirectorComponent,
         TextInputComponent,
         BlockdirectorComponent,
-        ShowcaseComponent
+        ShowcaseComponent,
+        LinksComponent,
+        ContactComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,90 @@
+<div class="p-1 top-20">
+
+  <div class="card">
+   <header class="card-header">
+     <p class="card-header-title">
+       Eray Sitesi Faydalı Linkler Tanımlama Sayfası
+     </p>
+
+   </header>
+   <div class="card-content">
+     <form novalidate [formGroup]="linkForm">
+
+
+       <app-text-input
+        [formControl]='linkForm.controls["header"]'
+        [placeholder]="'Link Başlığı'"
+        [label]="'Link Başlığı'"
+        [requiredMessage]="'Link başlık Tanımı zorunludur'"
+         [minlength]='"5"' [maxlength]='"30"'></app-text-input>
+
+
+       <app-text-input
+       [formControl]='linkForm.controls["url"]'
+       [placeholder]="'https:// site url bilgisi'"
+       [label]="'Site Url bilgisi'"
+       [requiredMessage]="'Url bilgisi Tanımı zorunludur'"
+        [minlength]='"5"' [maxlength]='"30"'></app-text-input>
+
+        <app-text-input
+        [formControl]='linkForm.controls["desc"]'
+        [placeholder]="'https:// site url bilgisi'"
+        [label]="'Siteye ait detay açıklama' "
+        [requiredMessage]="'Detay bilgisi zorunludur'"
+         [minlength]='"1"' [maxlength]='"30"'></app-text-input>
+     </form>
+   </div>
+   <footer class="card-footer">
+     <div class="card-footer-item">
+       <button class="button is-primary" type="submit" (click)="onSubmit()" [disabled]="linkForm.invalid" >Kaydet</button>
+     </div>
+
+   </footer>
+ </div>
+
+
+
+ <section class="section">
+   <div class="container">
+     <div class="b-table">
+       <div class="table-wrapper has-mobile-cards">
+         <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+           <thead>
+           <tr>
+             <th>Link Adı</th>
+             <th>Link url</th>
+             <th>Link açıklama</th>
+             <th></th>
+           </tr>
+           </thead>
+           <tbody>
+           <tr *ngFor="let item of currentLinks">
+             <td data-label="Name">{{ item.title }} </td>
+             <td data-label="Name">{{ item.url }} </td>
+             <td data-label="Name">{{ item.desc }} </td>
+
+
+             <td class="is-actions-cell">
+               <div class="buttons is-right">
+                 <button class="button is-small is-danger jb-modal" (click)="deleteLink(item.id)" data-target="sample-modal" type="button">
+                   <span class="icon"><i class="mdi mdi-trash-can"></i>Sil</span>
+                 </button>
+               </div>
+             </td>
+           </tr>
+
+
+
+
+
+
+           </tbody>
+         </table>
+       </div>
+     </div>
+   </div>
+ </section>
+
+
+</div>
+
