@@ -6,7 +6,7 @@ public class DataContext : DbContext
     public DataContext(DbContextOptions options) : base(options)
     {
     }
-   // public DbSet<AppUser> Users { get; set; }
+    public DbSet<AppUser> Users { get; set; }
     public DbSet<Job> Jobs { get; set; }
      public DbSet<Director> Directors { get; set; }
      public DbSet<UsefulLink> UsefulLinks { get; set; }
