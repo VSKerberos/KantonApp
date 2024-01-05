@@ -11,5 +11,11 @@ public class CreateAppUserValidator : AbstractValidator<AppUserDto>
         .Length(1,25)
         .WithMessage("Lütfen Kullanıcı adı giriniz");
 
+        RuleFor(y=>y.Password)
+        .NotNull()
+        .NotEmpty()
+        .Length(1,25)
+        .WithMessage("Lütfen Password giriniz.");
+
     }
 }

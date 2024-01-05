@@ -20,6 +20,7 @@ public static class ApplicationServiceExtensions
                 services.AddScoped<IContactRepository,ContactRepository>();  
                 services.AddScoped<IBlockDirectorRepository,BlockDirectorRepository>();
                 services.AddScoped<IShowRoomRepository,ShowRoomRepository>();
+                services.AddScoped<IUserRepository,UserRepository>();
 
 
 
