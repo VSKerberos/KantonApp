@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ public class UsersController : ControllerBase
         this.mapper = mapper;
     }
 
+[AllowAnonymous]
 [HttpGet]
 public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
 {
@@ -28,6 +30,7 @@ public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     return users;
 }
 
+[Authorize]
 [HttpGet("{id}")]
 public async Task<ActionResult<AppUser>> GetUser(int id)
 {
@@ -37,7 +40,7 @@ public async Task<ActionResult<AppUser>> GetUser(int id)
 
 // POST: api/Contacts
 [HttpPost]
-public async Task<ActionResult<AppUserDto>> PostContact(AppUserDto createUser)
+public async Task<ActionResult<AppUserDto>> PostUser(AppUserDto createUser)
 {
     var validator = new CreateAppUserValidator();
     var results = validator.Validate(createUser);
@@ -60,7 +63,7 @@ public async Task<ActionResult<AppUserDto>> PostContact(AppUserDto createUser)
 
 // Put: api/Jobs/5
 [HttpPut("{id}")]
-public async Task<ActionResult> PutJob(int id, AppUserDto createUserDto)
+public async Task<ActionResult> PutUser(int id, AppUserDto createUserDto)
 {
     if(id != createUserDto.Id)
     {
@@ -95,7 +98,7 @@ public async Task<ActionResult> PutJob(int id, AppUserDto createUserDto)
 
 // Delete: api/User/5
 [HttpDelete("{id}")]
-public async Task<IActionResult> DeleteJob(int id)
+public async Task<IActionResult> DeleteUser(int id)
 {
     if(!await UserExists(id))
     return NotFound();

@@ -21,7 +21,9 @@ public static class ApplicationServiceExtensions
                 services.AddScoped<IBlockDirectorRepository,BlockDirectorRepository>();
                 services.AddScoped<IShowRoomRepository,ShowRoomRepository>();
                 services.AddScoped<IUserRepository,UserRepository>();
+                services.AddScoped<ITokenService,TokenService>();
 
+                
 
 
                 services.AddValidatorsFromAssemblyContaining<CreateContactFormValidator>();
