@@ -20,7 +20,7 @@ public class BlockDirectorsController :ControllerBase
 
     // POST: api/BlockDirectors
 [HttpPost]
-public async Task<ActionResult<CreateBlockDirectorDto>> PostContact(CreateBlockDirectorDto createBlockDirector)
+public async Task<ActionResult<CreateBlockDirectorDto>> PostBlockDirector(CreateBlockDirectorDto createBlockDirector)
 {
      var blockDirector = mapper.Map<IslandDirector>(createBlockDirector);
      await blockDirectorRepository.AddAsync(blockDirector);

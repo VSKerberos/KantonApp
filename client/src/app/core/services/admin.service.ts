@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, switchMap } from 'rxjs';
-import { BlockDirectorModel, ContactModel, DirectorModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel } from '../models/job.model';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
+import { BlockDirectorModel, ContactModel, DirectorModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,13 +18,21 @@ export class AdminService {
   public showCaseUrl:string= `${GlobalConstants.BackEndConnection}showrooms`;
   public usefulLinkUrl:string= `${GlobalConstants.BackEndConnection}links`;
   public contactsUrl:string = `${GlobalConstants.BackEndConnection}contacts`;
+  public accountUrl:string = `${GlobalConstants.BackEndConnection}account/login`;
 
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
-
   public   url:string='/assets/islands.json';
+
+  private currentUserSource = new BehaviorSubject<UserModel | null>(null);
+  currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient, private toaster:ToastrService) { }
 
+
+  getHttpOptions() {
+
+
+  }
 
   listOfJobs(){
     return this.http.get<JobModel[]>(this.jobUrl);
@@ -149,6 +157,17 @@ export class AdminService {
 
     deleteContact(contactId:number) {
       return this.http.delete(`${this.contactsUrl}/${contactId}`);
+    }
+
+    userAutheticate(usermodel:UserModel){
+      return this.http.post<UserModel>(this.accountUrl,usermodel).subscribe((resp:UserModel)=>{
+        this.currentUserSource.next(resp);
+
+      });
+    }
+
+    logOutUser(){
+      this.currentUserSource.next(null);
     }
 
 }

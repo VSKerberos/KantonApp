@@ -11,6 +11,7 @@ import { ToastrModule} from 'ngx-toastr'
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { TextInputComponent } from './core/components/text-input/text-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
 
@@ -37,6 +38,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     {
       provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true
+    },
+    {
+      provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true
     }
   ],
   bootstrap: [AppComponent]

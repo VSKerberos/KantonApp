@@ -22,12 +22,12 @@
 
   <div class="navbar-menu has-background-white" [ngClass]="isclicked ? 'navbar-menu has-background-white is-active' :'navbar-menu has-background-white'">
     <div class="navbar-start" *ngIf="isclicked">
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/showcase">Gündem Köşesi</a>
-      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/director"> Yönetim Kurulu Sayfası</a>
-      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/blockdirector" >Temsilciler Kurulu Sayfası</a>
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/job">Görev Tanımlama Sayfası</a>
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/usefullinks">Yararlı Linkler Sayfası</a>
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/contact">Bize Ulaşın Mesajları Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/showcase" *ngIf="this.service.currentUser$ | async">Gündem Köşesi</a>
+      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/director" *ngIf="this.service.currentUser$ | async"> Yönetim Kurulu Sayfası</a>
+      <a class="navbar-item"  routerLinkActive="is-active" routerLink="admin/blockdirector" *ngIf="this.service.currentUser$ | async">Temsilciler Kurulu Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/job" *ngIf="this.service.currentUser$ | async">Görev Tanımlama Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/usefullinks" *ngIf="this.service.currentUser$ | async">Yararlı Linkler Sayfası</a>
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="admin/contact" *ngIf="this.service.currentUser$ | async">Bize Ulaşın Mesajları Sayfası</a>
     </div>
 
     <!-- <div class="navbar-end">
@@ -65,32 +65,37 @@
           </p>
           <ul class="menu-list">
             <li>
-              <a class="has-background-primary">
+              <a class="has-background-primary" *ngIf="this.service.currentUser$ | async">
 
                 İçerik Düzenleme Sayfaları</a>
               <ul>
-                <li><a routerLinkActive="is-active" routerLink="admin/showcase">
+                <li><a routerLinkActive="is-active" routerLink="admin/showcase" *ngIf="this.service.currentUser$ | async">
                   <i class="fas fa-solid fa-industry"></i>
                   Gündem Köşesi</a></li>
-                <li><a routerLinkActive="is-active" routerLink="admin/director">
+                <li><a routerLinkActive="is-active" routerLink="admin/director" *ngIf="this.service.currentUser$ | async">
                   <i class="fas fa-thin fa-address-card"></i>
                   Yönetim Kurulu Sayfası</a></li>
-                <li><a routerLinkActive="is-active" routerLink="admin/blockdirector" >
+                <li><a routerLinkActive="is-active" routerLink="admin/blockdirector" *ngIf="this.service.currentUser$ | async">
                   <i class="fas fa-thin fa-network-wired"></i>
                   Temsilciler Kurulu Sayfası</a></li>
-                <li><a routerLinkActive="is-active" routerLink="admin/job">
+                <li><a routerLinkActive="is-active" routerLink="admin/job" *ngIf="this.service.currentUser$ | async">
                   <i class="fas fa-solid fa-file"></i>
                   Görev Tanımlama Sayfası</a></li>
-                <li><a routerLinkActive="is-active" routerLink="admin/usefullinks">
+                <li><a routerLinkActive="is-active" routerLink="admin/usefullinks" *ngIf="this.service.currentUser$ | async">
                   <i class="fas fa-solid fa-tags"></i>
                   Yararlı Linkler Sayfası</a></li>
                 <li>
 
-                  <a routerLinkActive="is-active" routerLink="admin/contact">
+                  <a routerLinkActive="is-active" routerLink="admin/contact" *ngIf="this.service.currentUser$ | async">
                     <i class=" fas fa-thin fa-envelope"></i>
                     Bize Ulaşın Mesajları Sayfası</a></li>
+                    <li>
 
-                <li><a href="#"></a></li>
+                      <a routerLinkActive="is-active" routerLink="admin/contact" (click)="logout()" *ngIf="this.service.currentUser$ | async" >
+                        <i class=" fas fa-thin fa-user"></i>
+                        Çıkış</a></li>
+
+                <li><a routerLinkActive="is-active" routerLink="admin/login" *ngIf="!(this.service.currentUser$ | async)">Login</a></li>
               </ul>
             </li>
 

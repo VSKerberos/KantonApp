@@ -48,3 +48,9 @@ export interface ContactModel {
   email:string;
   desc:string;
 }
+
+export interface UserModel {
+  username:string;
+  password:string;
+  token?:string;
+}

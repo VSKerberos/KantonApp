@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { AdminService } from 'src/app/core/services/admin.service';
 
 @Component({
   selector: 'app-auth-layout',
@@ -10,7 +11,7 @@ export class AuthLayoutComponent implements OnInit {
 
   isclicked:boolean=false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public service: AdminService) {}
 
   toggle(event:any) {
     event.stopPropagation();
@@ -32,5 +33,9 @@ export class AuthLayoutComponent implements OnInit {
           console.log(event.error);
       }
     });
+  }
+
+  logout() {
+    this.service.logOutUser();
   }
 }

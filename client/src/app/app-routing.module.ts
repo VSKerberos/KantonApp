@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
 
@@ -35,6 +36,7 @@ const routes: Routes = [
       {
         path:'admin',
         loadChildren:()=> import('./auth/auth.module').then(m=>m.AuthModule)
+
       }
 
     ]

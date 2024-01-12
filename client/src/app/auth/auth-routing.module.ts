@@ -7,28 +7,35 @@ import { BlockdirectorComponent } from './blockdirector/blockdirector.component'
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { LinksComponent } from './links/links.component';
 import { ContactComponent } from './contact/contact.component';
+import { authGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path:'', component:LoginComponent,
+    path:'login', component:LoginComponent
   },
   {
-    path:'job',component:JobComponent
+    path:'job',component:JobComponent,
+    canActivate:[authGuard]
   },
   {
-    path:'director', component:DirectorComponent
+    path:'director', component:DirectorComponent,
+    canActivate:[authGuard]
   },
   {
-    path:'blockdirector', component:BlockdirectorComponent
+    path:'blockdirector', component:BlockdirectorComponent,
+    canActivate:[authGuard]
   },
   {
-    path:'showcase', component:ShowcaseComponent
+    path:'showcase', component:ShowcaseComponent,
+    canActivate:[authGuard]
   },
   {
-    path:'usefullinks', component:LinksComponent
+    path:'usefullinks', component:LinksComponent,
+    canActivate:[authGuard]
   },
   {
-    path:'contact', component:ContactComponent
+    path:'contact', component:ContactComponent,
+    canActivate:[authGuard]
   }
 ];
 
