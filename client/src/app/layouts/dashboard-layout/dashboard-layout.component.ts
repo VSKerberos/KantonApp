@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DashboardLayoutComponent {
 
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+
+
+  }
 }

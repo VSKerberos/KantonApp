@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Identity.Client;
 
@@ -18,6 +19,7 @@ public class FilesController : ControllerBase
          this.showRoomRepository = showRoomRepository;
     }
 
+[Authorize]
 [HttpPost]
 [Route("UploadFile")]
 [ProducesResponseType(StatusCodes.Status200OK)]
@@ -97,6 +99,7 @@ public async Task<IActionResult> UploadFile(IFormFile file, CancellationToken ca
     }
 
 // Delete: api/file/5
+[Authorize]
 [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteFile(int id)
     {

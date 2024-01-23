@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +21,7 @@ public class JobsController : ControllerBase
     }
 
 // POST: api/Jobs
-
+[Authorize]
 [HttpPost]
 public async Task<ActionResult<Job>> PostJob(CreateJobDto createJob)
 {
@@ -69,6 +70,7 @@ public async Task<ActionResult<Job>> GetJob(int id)
 }
 
 // Put: api/Jobs/5
+[Authorize]
 [HttpPut("{id}")]
 public async Task<ActionResult> PutJob(int id, GetJobDto updateJobDto)
 {
@@ -104,6 +106,7 @@ public async Task<ActionResult> PutJob(int id, GetJobDto updateJobDto)
 }
 
 // Delete: api/Job/5
+[Authorize]
 [HttpDelete("{id}")]
 public async Task<IActionResult> DeleteJob(int id)
 {

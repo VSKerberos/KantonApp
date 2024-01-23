@@ -1,0 +1,14 @@
+
+.bg-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  padding: 1em 0;
+  z-index: -0;
+  opacity: 0.25;
+
+
+}
+video{ width: inherit;}

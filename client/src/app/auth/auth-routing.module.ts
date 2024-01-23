@@ -36,6 +36,9 @@ const routes: Routes = [
   {
     path:'contact', component:ContactComponent,
     canActivate:[authGuard]
+  },
+  {
+    path:'**',component:LoginComponent
   }
 ];
 

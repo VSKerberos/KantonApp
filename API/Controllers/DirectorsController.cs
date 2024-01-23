@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,7 @@ public class DirectorsController : ControllerBase
     }
 
     // POST: api/Directors
-
+[Authorize]
 [HttpPost]
 public async Task<ActionResult<CreateDirectorDto>> PostDirector(CreateDirectorDto createDirector)
 {
@@ -86,6 +87,7 @@ JobTitle = item.Job.Title
 }
 
 // Put: api/Directors/5
+[Authorize]
 [HttpPut("{id}")]
 public async Task<ActionResult> PutDirector(int id, GetDirectorDto updateDirectorDto)
 {
@@ -145,7 +147,9 @@ public async Task<ActionResult> PutDirector(int id, GetDirectorDto updateDirecto
 
 
 // Delete: api/Director/5
+[Authorize]
 [HttpDelete("{id}")]
+
 public async Task<IActionResult> DeleteDirector(int id)
 {
     if(!await DirectorExists(id))

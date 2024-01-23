@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,7 @@ public class ShowRoomsController : ControllerBase
 
 
 // POST: api/ShowRooms
+[Authorize]
 [HttpPost]
 public async Task<ActionResult<GetShowRoomDto>> PostLink(CreateShowRoomDto createShowRoomDto)
 {
@@ -90,6 +92,7 @@ public async Task<ActionResult> PutShowRoom(int id, GetShowRoomDto updateShowRoo
 }
 
 // Delete: api/ShowRoom/5
+[Authorize]
 [HttpDelete("{id}")]
 public async Task<IActionResult> DeleteShowRoom(int id)
 {

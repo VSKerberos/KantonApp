@@ -12,6 +12,8 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { TextInputComponent } from './core/components/text-input/text-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { DashboardModule } from './dashboard/dashboard.module';
+
 
 
 
@@ -20,6 +22,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     AppComponent,
     AuthLayoutComponent,
     DashboardLayoutComponent,
+
 
   ],
   imports: [
@@ -33,7 +36,9 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
       timeOut:5000,
       positionClass:"toast-top-right",
       preventDuplicates:true
-    })
+    }),
+    DashboardModule
+
   ],
   providers: [
     {

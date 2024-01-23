@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +20,9 @@ public class BlockDirectorsController :ControllerBase
     }
 
     // POST: api/BlockDirectors
-[HttpPost]
+    [Authorize]
+    [HttpPost]
+
 public async Task<ActionResult<CreateBlockDirectorDto>> PostBlockDirector(CreateBlockDirectorDto createBlockDirector)
 {
      var blockDirector = mapper.Map<IslandDirector>(createBlockDirector);
@@ -54,7 +57,9 @@ public async Task<ActionResult<IEnumerable<GetBlockDirectorDto>>> GetBlockDirect
 
 
 // Put: api/BlockDirectors/5
+[Authorize]
 [HttpPut("{id}")]
+
 public async Task<ActionResult> PutBlockDirector(int id, GetBlockDirectorDto updateBlockDirectorDto)
 {
     if(id != updateBlockDirectorDto.Id)
@@ -95,7 +100,9 @@ public async Task<ActionResult> PutBlockDirector(int id, GetBlockDirectorDto upd
 }
 
 // Delete: api/Contacts/5
+[Authorize]
 [HttpDelete("{id}")]
+
 public async Task<IActionResult> DeleteBlockDirector(int id)
 {
     if(!await BlockDirectorExists(id))

@@ -1,0 +1,22 @@
+#footer-wrapper {
+  background: #c8d2bc url(../../../assets/images/bg1.png);
+  padding: 20px 0;
+  position: relative;
+}
+
+ul {
+  padding: 0.25em 0 0 0;
+  letter-spacing: -1px;
+}
+a {
+  color: #5d93a2;
+  text-decoration: underline;
+}
+
+  a:hover {
+    text-decoration: none;
+  }
+
+* > p:last-child {
+  margin-bottom: 0 !important;
+}

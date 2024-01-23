@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,7 @@ public class ContactsController : ControllerBase
         
 // POST: api/Contacts
 [HttpPost]
+
 public async Task<ActionResult<CreateContactFormDto>> PostContact(CreateContactFormDto createContact)
 {
     var validator = new CreateContactFormValidator();
@@ -43,6 +45,7 @@ public async Task<ActionResult<CreateContactFormDto>> PostContact(CreateContactF
 }
 
 // GET: api/Contacts/5
+[Authorize]
 [HttpGet("{id}")]
 public async Task<ActionResult<GetContactFormDto>> GetContact(int id)
 {
@@ -59,6 +62,7 @@ public async Task<ActionResult<GetContactFormDto>> GetContact(int id)
 
 // GET: api/Contacts
 [HttpGet]
+[Authorize]
 public async Task<ActionResult<IEnumerable<GetContactFormDto>>> GetContacts(){
 
     var contacts =  await contactRepository.GetAllAsync();
@@ -67,6 +71,7 @@ public async Task<ActionResult<IEnumerable<GetContactFormDto>>> GetContacts(){
 }
 
 // Put: api/Contacts/5
+[Authorize]
 [HttpPut("{id}")]
 public async Task<ActionResult> PutContact(int id, GetContactFormDto updateContactFormDto)
 {
@@ -108,6 +113,7 @@ public async Task<ActionResult> PutContact(int id, GetContactFormDto updateConta
 }
 
 // Delete: api/Contacts/5
+[Authorize]
 [HttpDelete("{id}")]
 public async Task<IActionResult> DeleteContact(int id)
 {

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,8 +19,8 @@ public class LinksController : ControllerBase
     }
 
     // POST: api/Links
-
-[HttpPost]
+    [Authorize]
+    [HttpPost]
 public async Task<ActionResult<GetLinkDto>> PostLink(CreateLinkDto createLinkDto)
 {
     var usefulLink = mapper.Map<UsefulLink>(createLinkDto);
@@ -53,6 +54,7 @@ public async Task<ActionResult<IEnumerable<GetLinkDto>>> GetLinks(){
 }
 
 // Put: api/Link/5
+[Authorize]
 [HttpPut("{id}")]
 public async Task<ActionResult> PutLink(int id, GetLinkDto updateLinkDto)
 {
@@ -88,6 +90,7 @@ public async Task<ActionResult> PutLink(int id, GetLinkDto updateLinkDto)
 }
 
 // Delete: api/Link/5
+[Authorize]
 [HttpDelete("{id}")]
 public async Task<IActionResult> DeleteLink(int id)
 {
