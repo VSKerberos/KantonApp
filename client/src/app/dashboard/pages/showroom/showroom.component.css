@@ -1,0 +1,21 @@
+/* ul.link-list li {
+
+} */
+
+
+ ul.link-list li {
+  border-bottom: solid 1px #ced0b7;
+  padding: 0.75em 0 0 0;
+  margin: 0.75em 0 0 0;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+ul.link-list li a {
+  font-size: 1rem;
+}
+
+/* ul.link-list li:first-child {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0;
+  } */

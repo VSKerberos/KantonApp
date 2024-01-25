@@ -12,5 +12,9 @@ export class DashboardLayoutComponent {
   constructor(@Inject(DOCUMENT) private document: Document) {
 
 
+    // setTimeout(() => {
+    //   this.document.getElementById('theme')?.setAttribute('href','assets/main.css')
+    // }, 2000);
+
   }
 }

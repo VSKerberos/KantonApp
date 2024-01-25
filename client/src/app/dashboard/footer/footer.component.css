@@ -7,10 +7,16 @@
 ul {
   padding: 0.25em 0 0 0;
   letter-spacing: -1px;
+  border-bottom: solid 1px #ced0b7;
+  padding: 0.75em 0 0 0;
+  margin: 0.75em 0 0 0;
+  overflow: hidden;
+  margin-bottom: 1.5em;
 }
 a {
   color: #5d93a2;
   text-decoration: underline;
+  font-size: 1.2rem;
 }
 
   a:hover {
@@ -19,4 +25,11 @@ a {
 
 * > p:last-child {
   margin-bottom: 0 !important;
+}
+
+ul.link-list li {
+  border-bottom: solid 1px #A6A88F;
+  padding: 0.75em 0 0 0;
+  margin: 0.75em 0 0 0;
+  line-height: 3rem;
 }
