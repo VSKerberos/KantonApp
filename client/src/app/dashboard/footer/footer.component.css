@@ -15,12 +15,12 @@ ul {
 }
 a {
   color: #5d93a2;
-  text-decoration: underline;
+  text-decoration: underline wavy  #5d93a2 !important;
   font-size: 1.2rem;
 }
 
   a:hover {
-    text-decoration: none;
+    text-decoration: underline wavy  #5d93a2 !important;
   }
 
 * > p:last-child {

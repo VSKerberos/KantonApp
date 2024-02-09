@@ -6,8 +6,8 @@
         <section>
           <h2>Faydalı Linkler</h2>
           <div>
-            <div class="row">
-              <div class="col-3 col-6-medium col-12-small">
+            <div class="row" [innerHTML]="getDynamicTemplate()">
+              <!-- <div class="col-3 col-12-medium col-12-small">
                 <ul class="link-list">
                   <li><a href="https://www.isbank.com.tr/" target="_blank">İş Bankası</a></li>
                   <li><a href="http://www.aydin.gov.tr/" target="_blank">Aydın Valiliği</a></li>
@@ -21,11 +21,11 @@
                   <li><a href="https://aydin.bel.tr/" target="_blank">Aydın BB</a></li>
                   <li><a href="https://www.teknomkimya.com.tr/" target="_blank">Teknom Kimya</a></li>
                   <li><a href="https://aydin.bel.tr/detail/4745/nobetci-eczaneler" target="_blank">Nöbetçi Eczaneler</a></li>
-                  <!-- <li><a href="#">Dapibus sed mattis blandit</a></li>
-                  <li><a href="#">Vitae magna sed dolore</a></li> -->
+                  <li><a href="#">Dapibus sed mattis blandit</a></li>
+                  <li><a href="#">Vitae magna sed dolore</a></li>
                 </ul>
               </div>
-              <!-- <div class="col-3 col-6-medium col-12-small">
+              <div class="col-3 col-6-medium col-12-small">
                 <ul class="link-list">
                   <li><a href="#">Sed neque nisi consequat</a></li>
                   <li><a href="#">Dapibus sed mattis blandit</a></li>
@@ -33,8 +33,8 @@
                   <li><a href="#">Suspendisse varius ipsum</a></li>
                   <li><a href="#">Eget et amet consequat</a></li>
                 </ul>
-              </div> -->
-              <!-- <div class="col-3 col-6-medium col-12-small">
+              </div>
+               <div class="col-3 col-6-medium col-12-small">
                 <ul class="link-list">
                   <li><a href="#">Quis accumsan lorem</a></li>
                   <li><a href="#">Sed neque nisi consequat</a></li>
@@ -67,7 +67,7 @@
       <div class="col-12">
 
         <div id="copyright">
-          &copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+
         </div>
 
       </div>

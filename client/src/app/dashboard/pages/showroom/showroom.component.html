@@ -1,22 +1,22 @@
 
+
+
 <section>
-  <h2>Duyurular </h2>
-  <div>
-    <div class="row">
-      <div class="col-12 col-12-small">
-        <ul class="link-list" *ngFor="let item of avaliableShowroom">
-          <li><a>{{item.header}}</a> </li>
-        </ul>
-      </div>
-      <!-- <div class="col-6 col-12-small">
-        <ul class="link-list">
-          <li><a href="#">Quis accumsan lorem</a></li>
-          <li><a href="#">Sed neque nisi consequat</a></li>
-          <li><a href="#">Eget et amet consequat</a></li>
-          <li><a href="#">Dapibus sed mattis blandit</a></li>
-          <li><a href="#">Vitae magna sed dolore</a></li>
-        </ul>
-      </div> -->
-    </div>
-  </div>
+  <h2 style="text-align:center">Duyurular</h2>
+
+
+<div class="columns" *ngFor="let item of avaliableShowroom ">
+<ul class="price">
+<li class="header">{{item.header}}</li>
+<li> {{item.desc}} </li>
+<li class="grey"><a href="{{item.path}}" target="_blank" class="button">Görüntüle</a></li>
+
+</ul>
+</div>
+
+
+
+
+
+
 </section>

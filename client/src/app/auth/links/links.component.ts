@@ -22,16 +22,14 @@ export class LinksComponent implements OnInit, AfterContentChecked {
 
   linkForm = new FormGroup({
     header: new FormControl('', [ Validators.minLength(5),Validators.maxLength(35)]),
-    url: new FormControl('', [ Validators.minLength(5),Validators.maxLength(25),   Validators.pattern(
-      '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
-    )]),
-    desc: new FormControl('', [Validators.minLength(5), Validators.maxLength(35)]),
+    url: new FormControl('', [ Validators.minLength(5),Validators.maxLength(65), ]),
+    description: new FormControl('', [Validators.minLength(5), Validators.maxLength(35)]),
 
   });
 
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.loadLinks();
   }
 
   ngAfterContentChecked(): void {
@@ -48,7 +46,7 @@ export class LinksComponent implements OnInit, AfterContentChecked {
 }
 
 get description() {
-  return this.linkForm.get('desc');
+  return this.linkForm.get('description');
 }
 
   onSubmit(){
@@ -57,7 +55,7 @@ get description() {
     {
       let localUsefulLink:UsefulLinksModel= {
         title:this.header?.value || '',
-        desc:this.description?.value || '' ,
+        description:this.description?.value || '' ,
         url:this.url?.value || ''
       };
 
@@ -82,7 +80,7 @@ get description() {
           this.linkForm.patchValue({
             header: ' ',
             url: ' ',
-            desc: ' '
+            description: ' '
          });
          }
 

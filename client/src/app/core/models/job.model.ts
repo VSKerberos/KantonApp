@@ -38,7 +38,7 @@ export interface UsefulLinksModel {
   id?:number;
   title:string;
   url:string;
-  desc:string;
+  description:string;
 }
 
 export interface ContactModel {

@@ -24,10 +24,10 @@
        [placeholder]="'https:// site url bilgisi'"
        [label]="'Site Url bilgisi'"
        [requiredMessage]="'Url bilgisi Tanımı zorunludur'"
-        [minlength]='"5"' [maxlength]='"30"'></app-text-input>
+        [minlength]='"5"' [maxlength]='"60"'></app-text-input>
 
         <app-text-input
-        [formControl]='linkForm.controls["desc"]'
+        [formControl]='linkForm.controls["description"]'
         [placeholder]="'https:// site url bilgisi'"
         [label]="'Siteye ait detay açıklama' "
         [requiredMessage]="'Detay bilgisi zorunludur'"
@@ -61,7 +61,7 @@
            <tr *ngFor="let item of currentLinks">
              <td data-label="Name">{{ item.title }} </td>
              <td data-label="Name">{{ item.url }} </td>
-             <td data-label="Name">{{ item.desc }} </td>
+             <td data-label="Name">{{ item.description }} </td>
 
 
              <td class="is-actions-cell">

@@ -12,3 +12,6 @@
 
 }
 video{ width: inherit;}
+* {
+  box-sizing: border-box;
+}
