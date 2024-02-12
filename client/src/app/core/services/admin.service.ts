@@ -19,6 +19,7 @@ export class AdminService {
   public usefulLinkUrl:string= `${GlobalConstants.BackEndConnection}links`;
   public contactsUrl:string = `${GlobalConstants.BackEndConnection}contacts`;
   public accountUrl:string = `${GlobalConstants.BackEndConnection}account/login`;
+  public downloadFileUrl:string = `${GlobalConstants.BackEndConnection}files/downloadfile`;
 
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
   public   url:string='/assets/islands.json';
@@ -97,6 +98,11 @@ export class AdminService {
       };
 
       return this.http.post(this.fileUrl,formData, httpOptions);
+    }
+
+    downloadFile(fileName:string){
+
+      return this.http.get(`${this.downloadFileUrl}/${fileName}`,{responseType:'blob'});
     }
 
     switchMapAddForm(formData:FormData,showRoom:ShowRoomModel)

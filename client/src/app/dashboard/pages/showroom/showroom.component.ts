@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowRoomModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
+import { saveAs } from "file-saver";
 
 @Component({
   selector: 'app-showroom',
@@ -31,7 +32,18 @@ export class ShowroomComponent implements OnInit {
       this.avaliableShowroom = res;
     });
   }
+  getDocument(fileName:string){
+    console.log(fileName);
 
+    this.service.downloadFile(fileName).subscribe(
+      (result:any) => {
+
+        saveAs(result, fileName);
+        return {'data': {'message': 'download success'}};
+
+      });
+
+  }
 
 
 }

@@ -108,5 +108,11 @@ private async Task<bool> ShowRoomExists(int id)
     return await showRoomRepository.Exists(id);
 }
 
+private string CleanPath(string fileName)
+{
+       
+    return string.Empty;
+}
+
 
 }

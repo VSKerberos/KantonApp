@@ -63,7 +63,7 @@ public async Task<IActionResult> UploadFile(IFormFile file, CancellationToken ca
                 }
 
                 var exacpath = Path.Combine(Directory.GetCurrentDirectory(),"Upload\\Files",filename);
-                filename = exacpath;
+               // filename = exacpath;
                 using (var stream = new FileStream(exacpath,FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
