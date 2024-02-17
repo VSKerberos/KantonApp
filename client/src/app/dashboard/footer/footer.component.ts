@@ -22,6 +22,8 @@ export class FooterComponent implements OnInit {
   </div>
 `;
 
+
+
 resultDynamicTemplate='';
 
 
@@ -110,17 +112,8 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
 
   loadLinks()
   {
-    this.adminService.listOfUsefulLinks()
-    .subscribe(
-      {
-        next: response=> this.currentLinks = response,
-        error: error=> console.log(error),
-        complete:()=> {
-          this.getDynamicTemplate();
-         }
-
-      }
-  );
+    this.adminService.homePageServices();
+   this.adminService.links$.subscribe(message => this.currentLinks = message);
 
   }
 

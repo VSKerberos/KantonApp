@@ -21,3 +21,16 @@ public class ErrorDetailsDto
         }
 
 }
+
+
+public class GeneralCurrencyDto{
+
+     public string askUSD { get; set; }
+     public string bidUSD { get; set; }
+
+     public string askEUR { get; set; }
+     public string bidEUR { get; set; }
+
+     public string askJPY { get; set; }
+     public string bidJPY { get; set; }
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
-import { BlockDirectorModel, ContactModel, DirectorModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
+import { BehaviorSubject, Observable, forkJoin, switchMap } from 'rxjs';
+import { BlockDirectorModel, ContactModel, DirectorModel, GeneralCurrencyModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 import { ToastrService } from 'ngx-toastr';
 
@@ -20,12 +20,23 @@ export class AdminService {
   public contactsUrl:string = `${GlobalConstants.BackEndConnection}contacts`;
   public accountUrl:string = `${GlobalConstants.BackEndConnection}account/login`;
   public downloadFileUrl:string = `${GlobalConstants.BackEndConnection}files/downloadfile`;
+  public currencyUrl:string = `${GlobalConstants.BackEndConnection}currency/currency`;
+
 
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
   public   url:string='/assets/islands.json';
 
   private currentUserSource = new BehaviorSubject<UserModel | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
+
+  private currencySource = new BehaviorSubject<GeneralCurrencyModel | null>(null);
+  currencies$ = this.currencySource.asObservable();
+
+  private linkSource = new BehaviorSubject<UsefulLinksModel[] | []>([]);
+  links$ = this.linkSource.asObservable();
+
+
+
 
   constructor(private http: HttpClient, private toaster:ToastrService) { }
 
@@ -170,6 +181,32 @@ export class AdminService {
         this.currentUserSource.next(resp);
 
       });
+    }
+
+
+    loadCurrencies(){
+      return this.http.get(this.currencyUrl);
+    }
+
+    homePageServices()
+    {
+      const loadLinksAPI = this.listOfUsefulLinks();
+      const loadCurrencyAPI = this.loadCurrencies();
+
+
+    forkJoin([loadLinksAPI, loadCurrencyAPI]) //we can use more that 2 api request
+    .subscribe(
+        result => {
+            //this will return list of array of the result
+
+            this.linkSource.next(<UsefulLinksModel[]>result[0]);
+            this.currencySource.next(<GeneralCurrencyModel>result[1]);
+
+        },
+        error=>{
+          console.log(error);
+        }
+    );
     }
 
     logOutUser(){

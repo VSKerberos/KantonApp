@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { ShowroomComponent } from './pages/showroom/showroom.component';
+import { CurrencyComponent } from './pages/currency/currency.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ShowroomComponent } from './pages/showroom/showroom.component';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    ShowroomComponent
+    ShowroomComponent,
+    CurrencyComponent
   ],
   imports: [
     CommonModule,

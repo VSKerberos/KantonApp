@@ -54,3 +54,13 @@ export interface UserModel {
   password:string;
   token?:string;
 }
+
+export interface GeneralCurrencyModel {
+
+  askUSD:string;
+  bidUSD:string;
+  askEUR:string;
+  bidEUR:string;
+  askJPY:string;
+  bidJPY:string;
+}
