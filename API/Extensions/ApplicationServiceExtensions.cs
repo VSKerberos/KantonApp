@@ -23,6 +23,7 @@ public static class ApplicationServiceExtensions
                 services.AddScoped<IShowRoomRepository,ShowRoomRepository>();
                 services.AddScoped<IUserRepository,UserRepository>();
                 services.AddScoped<ITokenService,TokenService>();
+                services.AddScoped<WeatherService>();
 
                 
 

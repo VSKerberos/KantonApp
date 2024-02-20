@@ -1,0 +1,51 @@
+{
+    "location": {
+      "name": "Aydin",
+      "region": "Aydin",
+      "country": "Turkey",
+      "lat": 37.84,
+      "lon": 27.85,
+      "tz_id": "Europe/Istanbul",
+      "localtime_epoch": 1708200674,
+      "localtime": "2024-02-17 23:11"
+    },
+    "current": {
+      "last_updated_epoch": 1708200000,
+      "last_updated": "2024-02-17 23:00",
+      "temp_c": 9,
+      "temp_f": 48.2,
+      "is_day": 0,
+      "condition": {
+        "text": "Clear",
+        "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+        "code": 1000
+      },
+      "wind_mph": 2.2,
+      "wind_kph": 3.6,
+      "wind_degree": 10,
+      "wind_dir": "N",
+      "pressure_mb": 1021,
+      "pressure_in": 30.15,
+      "precip_mm": 0,
+      "precip_in": 0,
+      "humidity": 76,
+      "cloud": 0,
+      "feelslike_c": 8.4,
+      "feelslike_f": 47.1,
+      "vis_km": 10,
+      "vis_miles": 6,
+      "uv": 1,
+      "gust_mph": 7.5,
+      "gust_kph": 12.1,
+      "air_quality": {
+        "co": 290.4,
+        "no2": 9.9,
+        "o3": 36.1,
+        "so2": 4.1,
+        "pm2_5": 12.8,
+        "pm10": 15.9,
+        "us-epa-index": 1,
+        "gb-defra-index": 2
+      }
+    }
+  }

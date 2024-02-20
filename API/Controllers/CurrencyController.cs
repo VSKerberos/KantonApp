@@ -1,5 +1,6 @@
 ﻿using System.Xml;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace API;
 
@@ -9,11 +10,12 @@ public class CurrencyController : ControllerBase
 {
 
  private readonly IConfiguration iConfig;
+    private readonly WeatherService service;
 
-
- public CurrencyController(IConfiguration iConfig)
+    public CurrencyController(IConfiguration iConfig, WeatherService service)
  {
         this.iConfig = iConfig;
+        this.service = service;
     }
 
 
@@ -66,20 +68,34 @@ catch (System.Exception ex)
 [HttpGet("Weather")]
 public async Task<ActionResult<string>> Weather()
 {
-var client = new HttpClient();
-var request = new HttpRequestMessage
-{
-	Method = HttpMethod.Get,
-	RequestUri = new Uri("http://api.weatherapi.com/v1/current.json?key=876fd3d7689b415ea5310841231803&q=aydin&aqi=yes")
-};
-using (var response = await client.SendAsync(request))
-{
-	response.EnsureSuccessStatusCode();
-	var body = await response.Content.ReadAsStringAsync();
-	Console.WriteLine(body);
-}
+// var client = new HttpClient();
+// var request = new HttpRequestMessage
+// {
+// 	Method = HttpMethod.Get,
+// 	RequestUri = new Uri("http://api.weatherapi.com/v1/current.json?key=876fd3d7689b415ea5310841231803&q=aydin&aqi=yes")
+// };
+// using (var response = await client.SendAsync(request))
+// {
+// 	response.EnsureSuccessStatusCode();
+// 	var body = await response.Content.ReadAsStringAsync();
+// 	//Console.WriteLine(body);
+//     getJsonWeather(body);
+// }
+
+var weather = await (service.GetWeather("aydin"),service.GetWeather("izmir"));
+
 
 return string.Empty;
+}
+
+
+private void getJsonWeather(string jsonData)
+{
+  //  var jsonPath = Path.Combine(Directory.GetCurrentDirectory(),"Upload\\Files\\weather.json");
+
+       // string jsonData = System.IO.File.ReadAllText(jsonPath);
+    MainDto weather = JsonConvert.DeserializeObject<MainDto>(jsonData);
+
 }
 
 
