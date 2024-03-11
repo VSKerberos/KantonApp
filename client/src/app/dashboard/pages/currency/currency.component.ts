@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/core/services/admin.service';
 export class CurrencyComponent implements OnInit {
 
   currencies:any;
+  weathers:any;
   /**
    *
    */
@@ -25,6 +26,7 @@ export class CurrencyComponent implements OnInit {
       this.currencies = <GeneralCurrencyModel> curr;
 
      })
+
   }
 
 }

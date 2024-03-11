@@ -123,18 +123,31 @@
     </div>
     <div class="row main-row">
       <div class="col-3 col-12-medium">
-
         <section>
+          <h2>Hava durumu</h2>
+        <section *ngIf="this.adminService.weathers$ | async">
+          <app-weather
+          [CityName]='this.weathers ? this.weathers[1]?.location?.name : undefined '
+          [lat]='this.weathers ? this.weathers[1]?.location?.lat : undefined '
+          [lon]='this.weathers ? this.weathers[1]?.location?.lon : undefined'
+          [temp]='this.weathers ? this.weathers[1]?.current?.temp_c : undefined'
+          [windKph]='this.weathers ? this.weathers[1]?.current?.wind_kph : undefined'
 
-        </section>
 
-        <section>
-          <h2>Something profound</h2>
-          <p>Duis neque sed nisi, dapibus sed mattis rutrum accumsan sed.
-          Suspendisse eu varius amet nibh. Suspendisse vitae magna eget odio amet
-          mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
-          lorem ipsum dolor consequat blandit tempus ipsum dolor lorem sit amet.</p>
+          ></app-weather>
         </section>
+        <!-- <section *ngIf="this.adminService.weathers$ | async">
+          <app-weather
+          [CityName]=' this.weathers ?  this.weathers[0]!.location!.name : undefined'
+          [lat]='this.weathers[0]!.location!.lat'
+          [lon]='this.weathers[0]!.location!.lon'
+          [temp]='this.weathers[0]!.current!.temp_c'
+          [windKph]='this.weathers[0]!.current!.wind_kph'
+          [humidity]='this.weathers[0].current.humidity'
+          [windDirection]='this.weathers[0]!.current!.wind_dir!'></app-weather>
+        </section> -->
+
+      </section>
 
       </div>
       <div class="col-6 col-12-medium imp-medium">
@@ -151,19 +164,15 @@
       </div>
       <div class="col-3 col-12-medium">
         <section>
-          <h2>Who are you guys?</h2>
+          <h2 style="text-transform: uppercase;">ATATÜRK</h2>
           <ul class="small-image-list">
             <li>
-              <a href="#"><img src="images/pic2.jpg" alt="" class="left" /></a>
-              <h4>Jane Anderson</h4>
-              <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis.</p>
-            </li>
-            <li>
-              <a href="#"><img src="images/pic1.jpg" alt="" class="left" /></a>
-              <h4>James Doe</h4>
-              <p>Vitae magna eget odio amet mollis justo facilisis amet quis. Sed sagittis consequat.</p>
+              <a href="https://kemalataturk.net/" target="_blank"><img src="../../assets/images/ataturk.webp" alt="ataturk" class="left" /></a>
+              <h4>Mustafa Kemal Atatürk</h4>
+
             </li>
           </ul>
+
         </section>
 
         <section>

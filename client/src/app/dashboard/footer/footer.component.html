@@ -50,8 +50,11 @@
       </div>
       <div class="col-4 col-12-medium">
 
-        <section>
-          <h2>Something of interest</h2>
+        <section *ngFor="let item of weathers">
+          <h2>{{item.current.humidity }}</h2>
+          <h2>{{item.current.wind_dir }}</h2>
+          <h2>{{item.location.name }}</h2>
+
           <p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed.
           Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet
           mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida

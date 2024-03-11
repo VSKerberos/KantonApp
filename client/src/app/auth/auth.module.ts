@@ -16,6 +16,8 @@ import { LinksComponent } from './links/links.component';
 import { ContactComponent } from './contact/contact.component';
 
 
+
+
 @NgModule({
     declarations: [
         LoginComponent,
@@ -32,6 +34,7 @@ import { ContactComponent } from './contact/contact.component';
         ReactiveFormsModule,
         AuthRoutingModule,
         FilesizePipe
+
     ]
 })
 export class AuthModule { }

@@ -24,6 +24,7 @@ public static class ApplicationServiceExtensions
                 services.AddScoped<IUserRepository,UserRepository>();
                 services.AddScoped<ITokenService,TokenService>();
                 services.AddScoped<WeatherService>();
+                services.AddMemoryCache();
 
                 
 

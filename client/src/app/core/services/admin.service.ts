@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, forkJoin, switchMap } from 'rxjs';
-import { BlockDirectorModel, ContactModel, DirectorModel, GeneralCurrencyModel, IslandModel, JobModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
+import { BlockDirectorModel, ContactModel, DirectorModel, GeneralCurrencyModel, IslandModel, JobModel, MainModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
 import { GlobalConstants } from '../models/global-constants';
 import { ToastrService } from 'ngx-toastr';
+import { Theme } from '../models/theme';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class AdminService {
   public accountUrl:string = `${GlobalConstants.BackEndConnection}account/login`;
   public downloadFileUrl:string = `${GlobalConstants.BackEndConnection}files/downloadfile`;
   public currencyUrl:string = `${GlobalConstants.BackEndConnection}currency/currency`;
+  public weatherUrl:string = `${GlobalConstants.BackEndConnection}currency/weather`
 
 
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
@@ -35,6 +37,8 @@ export class AdminService {
   private linkSource = new BehaviorSubject<UsefulLinksModel[] | []>([]);
   links$ = this.linkSource.asObservable();
 
+  private weatherSource = new BehaviorSubject<MainModel[] |[]> ([]);
+  weathers$ = this.weatherSource.asObservable();
 
 
 
@@ -188,19 +192,26 @@ export class AdminService {
       return this.http.get(this.currencyUrl);
     }
 
+    loadWeathers(){
+      return this.http.get(this.weatherUrl);
+    }
+
     homePageServices()
     {
       const loadLinksAPI = this.listOfUsefulLinks();
       const loadCurrencyAPI = this.loadCurrencies();
+      const loadWeatherAPI =  this.loadWeathers();
 
 
-    forkJoin([loadLinksAPI, loadCurrencyAPI]) //we can use more that 2 api request
+    forkJoin([loadLinksAPI, loadCurrencyAPI,loadWeatherAPI]) //we can use more that 2 api request
     .subscribe(
         result => {
             //this will return list of array of the result
 
             this.linkSource.next(<UsefulLinksModel[]>result[0]);
             this.currencySource.next(<GeneralCurrencyModel>result[1]);
+            this.weatherSource.next(<MainModel[]>result[2]);
+
 
         },
         error=>{

@@ -1,0 +1,21 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{CityName}}
+    </p>
+
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p class="subtitle is-6 has-text-info">Sıcaklık: <span class="has-text-black-ter is-size-6">{{ temp}} <span>&#8451;</span></span> </p>
+      <p class="subtitle is-6 has-text-info">Enlem: <span class="has-text-black-ter is-size-6"> {{lat}} <span>&#176;</span> </span> </p>
+<p class="subtitle is-6 has-text-info">Boylam: <span class="has-text-black-ter is-size-6">{{ lon}} <span>&#176;</span></span> </p>
+<p class="subtitle is-6 has-text-info">Rüzgar Hızı: <span class="has-text-black-ter is-size-6">{{windKph}} km/p</span> </p>
+<p class="subtitle is-6 has-text-info">Rüzgar Yönü: <span class="has-text-black-ter is-size-6">{{windDirection | directionName}}</span> </p>
+<p class="subtitle is-6 has-text-info">Nem: <span class="has-text-black-ter is-size-6"> % {{humidity}}</span> </p>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,3 +1,5 @@
+
+
 export interface JobModel {
   id?:number;
   title?:string;
@@ -63,4 +65,24 @@ export interface GeneralCurrencyModel {
   bidEUR:string;
   askJPY:string;
   bidJPY:string;
+}
+
+export interface MainModel{
+  location:Location;
+  current:Current;
+}
+
+export interface Location
+{
+  name?:string;
+  lat?:string | '';
+  lon?:string;
+}
+
+export interface Current {
+  temp_c: string;
+  wind_kph:string;
+  wind_dir:string;
+  humidity: number
+
 }

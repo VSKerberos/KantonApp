@@ -8,21 +8,26 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { ShowroomComponent } from './pages/showroom/showroom.component';
 import { CurrencyComponent } from './pages/currency/currency.component';
+import { WeatherComponent } from '../core/components/weather/weather.component';
+import { DirectionNamePipe } from "../core/pipes/direction-name.pipe";
+
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    ShowroomComponent,
-    CurrencyComponent
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule
-  ],
-  exports: [HeaderComponent,FooterComponent]
+    declarations: [
+        DashboardComponent,
+        HeaderComponent,
+        FooterComponent,
+        MainComponent,
+        ShowroomComponent,
+        CurrencyComponent,
+        WeatherComponent,
+    ],
+    exports: [HeaderComponent, FooterComponent],
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        DirectionNamePipe
+    ]
 })
 export class DashboardModule { }

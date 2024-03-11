@@ -1,5 +1,6 @@
 ﻿using System.Xml;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 
 namespace API;
@@ -11,11 +12,15 @@ public class CurrencyController : ControllerBase
 
  private readonly IConfiguration iConfig;
     private readonly WeatherService service;
+    private readonly IMemoryCache memoryCache;
 
-    public CurrencyController(IConfiguration iConfig, WeatherService service)
+     private const string WeatherCacheKey = "Weathers";
+
+    public CurrencyController(IConfiguration iConfig, WeatherService service, IMemoryCache memoryCache)
  {
         this.iConfig = iConfig;
         this.service = service;
+        this.memoryCache = memoryCache;
     }
 
 
@@ -65,8 +70,10 @@ catch (System.Exception ex)
     return currency;
 }
 
+
+// Task<ActionResult<IEnumerable<GetLinkDto>>> GetLinks(){
 [HttpGet("Weather")]
-public async Task<ActionResult<string>> Weather()
+public async Task<ActionResult<IEnumerable<MainDto>>> Weather()
 {
 // var client = new HttpClient();
 // var request = new HttpRequestMessage
@@ -82,10 +89,26 @@ public async Task<ActionResult<string>> Weather()
 //     getJsonWeather(body);
 // }
 
-var weather = await (service.GetWeather("aydin"),service.GetWeather("izmir"));
+var cachedResult = memoryCache.Get<List<MainDto>>(WeatherCacheKey);
+
+if(cachedResult == null){
+    var local = new List<MainDto>();
+
+var weather =  await (service.GetWeather("aydin"),service.GetWeather("izmir"));
+
+if(weather.Length>0){
+    local.Add(weather[0].Value);
+    local.Add(weather[1].Value);
+}
+
+memoryCache.Set(WeatherCacheKey,local,   TimeSpan.FromMinutes(15));
+
+return local;
+
+}
 
 
-return string.Empty;
+return cachedResult;
 }
 
 

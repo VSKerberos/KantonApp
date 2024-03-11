@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
-import { UsefulLinksModel } from 'src/app/core/models/job.model';
+import { MainModel, UsefulLinksModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class FooterComponent implements OnInit {
 
   allLinks: string[] = [];
   currentLinks:UsefulLinksModel[]=[];
+  weathers :MainModel[] =[];
   dynamicTemplate = `
   <div>
     <h1>[TITLE]</h1>
@@ -114,6 +115,9 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
   {
     this.adminService.homePageServices();
    this.adminService.links$.subscribe(message => this.currentLinks = message);
+
+
+
 
   }
 
