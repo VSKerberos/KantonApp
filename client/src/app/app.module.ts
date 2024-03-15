@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DirectionNamePipe } from './core/pipes/direction-name.pipe';
+import { ImageSliderComponent } from './core/components/image-slider/image-slider.component';
 
 
 
@@ -24,6 +25,7 @@ import { DirectionNamePipe } from './core/pipes/direction-name.pipe';
     AppComponent,
     AuthLayoutComponent,
     DashboardLayoutComponent,
+    ImageSliderComponent,
 
 
 

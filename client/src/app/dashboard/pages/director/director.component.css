@@ -1,0 +1,20 @@
+
+div.columns {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: rgb(0, 120, 151);
+  margin-bottom: 20px;
+
+}
+
+.table td {
+  font-size: 25px
+}
+
+.table th {
+  font-size: 25px;
+  text-align: center;
+}

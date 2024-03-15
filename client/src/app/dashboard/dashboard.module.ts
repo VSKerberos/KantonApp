@@ -10,6 +10,7 @@ import { ShowroomComponent } from './pages/showroom/showroom.component';
 import { CurrencyComponent } from './pages/currency/currency.component';
 import { WeatherComponent } from '../core/components/weather/weather.component';
 import { DirectionNamePipe } from "../core/pipes/direction-name.pipe";
+import { DirectorComponent } from './pages/director/director.component';
 
 
 
@@ -22,6 +23,7 @@ import { DirectionNamePipe } from "../core/pipes/direction-name.pipe";
         ShowroomComponent,
         CurrencyComponent,
         WeatherComponent,
+        DirectorComponent,
     ],
     exports: [HeaderComponent, FooterComponent],
     imports: [

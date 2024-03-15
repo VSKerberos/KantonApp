@@ -3,74 +3,25 @@
     <div class="row">
       <div class="col-8 col-12-medium">
 
-        <section>
+
           <h2>Faydalı Linkler</h2>
-          <div>
-            <div class="row" [innerHTML]="getDynamicTemplate()">
-              <!-- <div class="col-3 col-12-medium col-12-small">
-                <ul class="link-list">
-                  <li><a href="https://www.isbank.com.tr/" target="_blank">İş Bankası</a></li>
-                  <li><a href="http://www.aydin.gov.tr/" target="_blank">Aydın Valiliği</a></li>
-                  <li><a href="https://www.gib.gov.tr/" target="_blank">Gelir İdaresi</a></li>
-                  <li><a href="https://www.sgk.gov.tr/" target="_blank">SGK</a></li>
-                  <li><a href="https://www.sanbor.com.tr/" target="_blank">Sanbor</a></li>
-                </ul>
-              </div>
-              <div class="col-3 col-6-medium col-12-small">
-                <ul class="link-list">
-                  <li><a href="https://aydin.bel.tr/" target="_blank">Aydın BB</a></li>
-                  <li><a href="https://www.teknomkimya.com.tr/" target="_blank">Teknom Kimya</a></li>
-                  <li><a href="https://aydin.bel.tr/detail/4745/nobetci-eczaneler" target="_blank">Nöbetçi Eczaneler</a></li>
-                  <li><a href="#">Dapibus sed mattis blandit</a></li>
-                  <li><a href="#">Vitae magna sed dolore</a></li>
-                </ul>
-              </div>
-              <div class="col-3 col-6-medium col-12-small">
-                <ul class="link-list">
-                  <li><a href="#">Sed neque nisi consequat</a></li>
-                  <li><a href="#">Dapibus sed mattis blandit</a></li>
-                  <li><a href="#">Quis accumsan lorem</a></li>
-                  <li><a href="#">Suspendisse varius ipsum</a></li>
-                  <li><a href="#">Eget et amet consequat</a></li>
-                </ul>
-              </div>
-               <div class="col-3 col-6-medium col-12-small">
-                <ul class="link-list">
-                  <li><a href="#">Quis accumsan lorem</a></li>
-                  <li><a href="#">Sed neque nisi consequat</a></li>
-                  <li><a href="#">Eget et amet consequat</a></li>
-                  <li><a href="#">Dapibus sed mattis blandit</a></li>
-                  <li><a href="#">Vitae magna sed dolore</a></li>
-                </ul>
-              </div> -->
+
+            <div style="text-decoration:underline;color:#5d93a2;cursor: pointer !important;" class="row" [innerHTML]="getDynamicTemplate()">
             </div>
-          </div>
-        </section>
+
+
 
       </div>
       <div class="col-4 col-12-medium">
 
-        <section *ngFor="let item of weathers">
-          <h2>{{item.current.humidity }}</h2>
-          <h2>{{item.current.wind_dir }}</h2>
-          <h2>{{item.location.name }}</h2>
-
-          <p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed.
-          Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet
-          mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
-          lorem ipsum dolor sit blandit.</p>
-          <footer class="controls">
-            <a href="#" class="button">Oh, please continue ....</a>
-          </footer>
-        </section>
 
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 1px;">
       <div class="col-12">
 
         <div id="copyright">
-
+          © Tüm hakları saklıdır.
         </div>
 
       </div>

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { authGuard } from './core/guards/auth.guard';
+import { DirectorComponent } from './dashboard/pages/director/director.component';
+
 
 const routes: Routes = [
 
@@ -20,6 +22,10 @@ const routes: Routes = [
       path:'dashboard',
       loadChildren: ()=> import('./dashboard/dashboard.module').then(m=> m.DashboardModule)
     },
+    {
+      path:'director',
+      component:DirectorComponent
+    }
     ]
   },
 

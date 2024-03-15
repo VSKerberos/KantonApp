@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { MainModel, UsefulLinksModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
@@ -6,7 +6,9 @@ import { AdminService } from 'src/app/core/services/admin.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+
+
 })
 
 
@@ -30,19 +32,19 @@ resultDynamicTemplate='';
 
 
 mainDynamicTemplate = ` <div class="col-3 col-12-medium col-12-small">
-<ul class="link-list">
+<ul id="dynamic" class="link-list" style="text-decoration:underline">
   [DYNAMICROWS]
 </ul>
 </div>`;
 
 mainDynamicTemplate2 = ` <div class="col-3 col-12-medium col-12-small">
-<ul class="link-list">
+<ul class="link-list" class="link-list" style="text-decoration:underline">
   [DYNAMICROWS2]
 </ul>
 </div>`;
 
 mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
-<ul class="link-list">
+<ul class="link-list" class="link-list" >
   [DYNAMICROWS3]
 </ul>
 </div>`;
@@ -77,17 +79,17 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
 
     for (var index in this.currentLinks) {
 
-      var current='<li><a href="'+`${this.currentLinks[index].url}`+'" target="_blank">  '+`${this.currentLinks[index].title }`+'     </a></li>';
+      var current='<li><a href="'+`${this.currentLinks[index].url}`+'" target="_blank" >  '+`${this.currentLinks[index].title }`+'     </a></li>';
 
       this.allLinks.push(current);
 
-      if((Number(index)+1)<=5)
+      if((Number(index)+1)<=4)
       {
         linksTemplate1 = linksTemplate1 + current;
-      } else if((Number(index)+1)>5 && (Number(index)+1)<=10)
+      } else if((Number(index)+1)>4 && (Number(index)+1)<=8)
       {
         linksTemplate2 = linksTemplate2 + current;
-      } else if((Number(index)+1)>10 && (Number(index)+1)<=15) {
+      } else if((Number(index)+1)>8 && (Number(index)+1)<=12) {
         linksTemplate3 = linksTemplate3 + current;
       }
 

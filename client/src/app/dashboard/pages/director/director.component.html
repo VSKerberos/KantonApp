@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row main-row">
+  <div class="col-12">
+
+    <div class='container has-text-centered'>
+      <div class='columns is-mobile is-centered'>
+        <div class='column is-8'>
+          <div>
+            <h1 class='title'>Yönetim Kurulu</h1>
+            <hr>
+          </div>
+          <table class='table is-bordered is-hoverable'>
+            <thead>
+              <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Görevi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of avaliableDirectors">
+                <td>{{item.name}}</td>
+                <td>{{item.surName}}</td>
+                <td>{{item.jobTitle}}</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
