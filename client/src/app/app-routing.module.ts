@@ -4,6 +4,9 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { authGuard } from './core/guards/auth.guard';
 import { DirectorComponent } from './dashboard/pages/director/director.component';
+import { BlokComponent } from './dashboard/pages/blok/blok.component';
+import { ContactComponent } from './dashboard/pages/contact/contact.component';
+
 
 
 const routes: Routes = [
@@ -25,6 +28,14 @@ const routes: Routes = [
     {
       path:'director',
       component:DirectorComponent
+    },
+    {
+      path:'block',
+      component:BlokComponent
+    },
+    {
+      path:'contact',
+      component:ContactComponent
     }
     ]
   },

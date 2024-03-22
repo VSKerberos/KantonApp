@@ -48,7 +48,7 @@ export interface ContactModel {
   name:string;
   surname:string;
   email:string;
-  desc:string;
+  description:string;
 }
 
 export interface UserModel {

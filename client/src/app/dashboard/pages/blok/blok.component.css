@@ -1,0 +1,13 @@
+div.columns {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.title{
+  color: rgb(0, 120, 151);
+}
+
+.card-header-title{
+  background-color:#007294;
+  color: #fff;
+  font-size: 1.4rem;
+}

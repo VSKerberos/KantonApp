@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,15 +20,13 @@ import { ImageSliderComponent } from './core/components/image-slider/image-slide
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
     DashboardLayoutComponent,
-    ImageSliderComponent,
-
-
-
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -54,5 +52,7 @@ import { ImageSliderComponent } from './core/components/image-slider/image-slide
     }
   ],
   bootstrap: [AppComponent]
+
+
 })
 export class AppModule { }

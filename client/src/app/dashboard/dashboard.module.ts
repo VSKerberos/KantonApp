@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -11,6 +11,11 @@ import { CurrencyComponent } from './pages/currency/currency.component';
 import { WeatherComponent } from '../core/components/weather/weather.component';
 import { DirectionNamePipe } from "../core/pipes/direction-name.pipe";
 import { DirectorComponent } from './pages/director/director.component';
+import { BlokComponent } from './pages/blok/blok.component';
+import { CardviewComponent } from '../core/components/cardview/cardview.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from '../core/components/text-input/text-input.component';
 
 
 
@@ -24,11 +29,18 @@ import { DirectorComponent } from './pages/director/director.component';
         CurrencyComponent,
         WeatherComponent,
         DirectorComponent,
+        BlokComponent,
+        CardviewComponent,
+        ContactComponent
+
+
+
     ],
     exports: [HeaderComponent, FooterComponent],
     imports: [
         CommonModule,
         DashboardRoutingModule,
+        ReactiveFormsModule,
         DirectionNamePipe
     ]
 })

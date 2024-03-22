@@ -3,3 +3,6 @@
   padding-left: 0;
   letter-spacing: -4px;
 }
+nav {
+  cursor: pointer !important;
+}

@@ -1,0 +1,85 @@
+<div class="container" >
+  <div class="row main-row">
+    <div class="col-12">
+      <form novalidate [formGroup]="contactForm">
+      <div class='container has-text-centered' >
+        <div class='columns is-mobile'>
+          <div class='column is-8' >
+            <div>
+              <h1 class='title' style="text-align: center;">İletişim Formu</h1>
+              <hr>
+            </div>
+            <div class="field">
+              <label class="label">Adınız</label>
+              <div class="control">
+                <div class="control has-icons-left has-icons-right">
+                <input class="input"  type="text"  [ngClass]="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.touched) ? 'is-danger' : 'is-success'" placeholder="Adınız"  formControlName="firstName" required>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                </div>
+              </div>
+              <ng-container *ngIf="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.touched)">
+                <p class="help is-danger" > Lütfen Adınızı doldurunuz</p>
+              </ng-container>
+            </div>
+
+            <div class="field">
+              <label class="label">Soyadınız</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" type="text"  [ngClass]="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched) ? 'is-danger' : 'is-success'" placeholder="Soyadınız"  formControlName="surname">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+              <ng-container *ngIf="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched)">
+                <p class="help is-danger" > Lütfen Soyadınızı doldurunuz</p>
+              </ng-container>
+            </div>
+
+            <div class="field">
+              <label class="label">Email Adresiniz</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Email input" [ngClass]="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched) ? 'is-danger' : 'is-success'" formControlName="email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <ng-container *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched)">
+                <p class="help is-danger">Geçersiz email adresi</p>
+              </ng-container>
+
+            </div>
+
+
+
+            <div class="field">
+              <label class="label">Mesajınız</label>
+              <div class="control">
+                <textarea class="textarea" #desc placeholder="Textarea" [ngClass]="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched) ? 'is-danger' : 'is-success'" formControlName="desc" required></textarea>
+              </div>
+              <ng-container *ngIf="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched)">
+                <p class="help is-danger">Lütfen detay belirtiniz</p>
+              </ng-container>
+            </div>
+
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link" (click)="onSubmit()" [disabled]="contactForm.invalid">Gönder</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</form>
+    </div>
+
+  </div>
+
+  </div>
+  <div style="width: 100%;height: 10rem;"></div>

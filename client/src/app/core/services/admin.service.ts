@@ -172,6 +172,11 @@ export class AdminService {
       return this.http.delete(`${this.usefulLinkUrl}/${linkId}`);
     }
 
+    addContact(currentContact:ContactModel){
+      return this.http.post<ContactModel>(this.contactsUrl,currentContact);
+
+    }
+
     listOfContacts(){
       return this.http.get<ContactModel[]>(this.contactsUrl);
     }
