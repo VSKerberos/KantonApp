@@ -1,98 +1,36 @@
-
-table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-
-}
-table tr {
-  padding: .35em;
-  border: 1px solid rgba(29,150,178,1);
-  border-width: 1px ;
-
+.cover-image {
+    max-height: 330px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
-tr:nth-child(even) { background-color: rgba(94,93,82,.1);}
-
-tr:nth-child(odd) {background: #FFF}
-
-
-table th,
-table td {
-
-  padding: .625em;
-  text-align: left;
-
-
-}
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  background-color: rgba(29,150,178,1);
-  border: 1px solid rgba(29,150,178,1);
-  color: white;
-}
-table caption {
-  color: rgb(0, 120, 151);
-  font-size: 1.7em;
-  font-family: BlinkMacSystemFont,-apple-system,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
-
+.cover-image img {
+    transition: transform 1s, filter 2s ease-in-out;
+    -webkit-transition: transform 1s, filter 2s ease-in-out;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
+.card:hover .cover-image img {
+    cursor: pointer;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}
 
+.is-overflow-hidden {
+    overflow: hidden !important;
+}
 
-  }
-  table caption {
-    font-size: 1.3em;
-  }
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    background-color: rgba(29,150,178,1);
-  }
-   tr:nth-child(even) {background-color: rgba(94,93,82,.1);}
-   tr:nth-child(odd) {background: #FFF}
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
+.is-cursor-pointer {
+    cursor: pointer !important;
+}
 
-  }
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .85em;
-    text-align: right;
-  }
-  table td:before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  table td:last-child {
-    border-bottom: 0;
-  }
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }

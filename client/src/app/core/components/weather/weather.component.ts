@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -16,6 +17,11 @@ export class WeatherComponent {
   @Input() windKph:string | undefined='';
   @Input() humidity:number=0;
   @Input() windDirection:string="";
+
+
+constructor(public translate: TranslateService){
+
+}
 
 }
 

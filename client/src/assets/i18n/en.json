@@ -1,0 +1,55 @@
+{
+  "HOME": {
+    "TITLE": "Hello Angular with ngx-translate!",
+    "SELECT": "Change language"
+  },
+  "NAVIGATION": {
+    "Dashboard":"Dashboard",
+    "ManagementBoard":"Management Board",
+    "BlockDirector":"Block Directors",
+    "Contact":"Contact Us"
+  },
+  "WEATHER":{
+    "Temperature":"Temperature",
+    "Latitude":"Latitude",
+    "Longitude":"Longitude",
+    "WindSpeed":"Wind Speed",
+    "WindDirection":"Wind Direction",
+    "Humidity":"Humidity"
+
+  },
+  "BUTTON":{
+    "ViewDetails":"View Details",
+    "Send":"Send"
+  },
+  "TEXT": {
+    "ShowRoomAnnouncement":"AdaKanton Eray Site Announcement",
+    "AdaKantonEraySite":"AdaKanton Eray Site",
+    "BoardOfDirector":"Board of Directors",
+    "Name":"Name",
+    "Surname":"Surname",
+    "JobTitle":"Job Title",
+    "YourMessage":"Your Message",
+    "YourName":"Your Name",
+    "YourSurname":"Your SurName",
+    "YourEmail":"Your Email Address"
+  },
+  "ADVERTISE" : {
+    "RentalHeader":"Rental Ad",
+    "RentalDesc":"Monthly rent for the summer season (for the 6th, 7th, 8th and 9th months) ($1300) / (€1200). Ground floor open kitchen, bathroom, TV, living room, terraces, upper floor 3 rooms, bathroom, TV, balconies, PVC double glazing, duplex with floor heating. Site fees and electricity belong to the tenant.",
+    "RentalContact":"Contact",
+    "RentalDetail":"Ad Details",
+    "FirstFloor":"1st Floor",
+    "RoomBath":"3 Rooms 2 Bathrooms",
+    "meter":"156 m²",
+    "Deposit":"Deposit: €1,000"
+  },
+  "WARNING":{
+    "ValidEmail":"Please enter a valid Email address",
+    "ValidSurname":"Please enter a valid Surname",
+    "ValidName":"Please enter a valid Name",
+    "ValidDetail":"Please enter a detail message"
+
+
+  }
+}

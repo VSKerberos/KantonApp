@@ -16,7 +16,9 @@ import { CardviewComponent } from '../core/components/cardview/cardview.componen
 import { ContactComponent } from './pages/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from '../core/components/text-input/text-input.component';
-
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { TextInputComponent } from '../core/components/text-input/text-input.com
         CommonModule,
         DashboardRoutingModule,
         ReactiveFormsModule,
-        DirectionNamePipe
+        DirectionNamePipe,
+        TranslateModule
+
     ]
 })
 export class DashboardModule { }

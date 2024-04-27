@@ -1,85 +1,96 @@
-<div class="container" >
-  <div class="row main-row">
-    <div class="col-12">
-      <form novalidate [formGroup]="contactForm">
-      <div class='container has-text-centered' >
-        <div class='columns is-mobile'>
-          <div class='column is-8' >
-            <div>
-              <h1 class='title' style="text-align: center;">İletişim Formu</h1>
-              <hr>
-            </div>
-            <div class="field">
-              <label class="label">Adınız</label>
+
+
+  <div style="width: 100%;height: 1rem;"></div>
+  <section class="hero" id="contact-us">
+    <div class="hero-body">
+      <div class="container">
+        <div>
+          <div class="content">
+            <h4 class="title is-4"> {{ 'NAVIGATION.Contact' | translate }} </h4>
+          </div>
+          <h6 class="subtitle is-6">If you've any queries feel free to contact us</h6>
+          <div class="columns box">
+            <form class="column" novalidate [formGroup]="contactForm">
+
+                    <div class="field">
+              <label class="label">  {{ 'TEXT.YourName' | translate }}  </label>
               <div class="control">
                 <div class="control has-icons-left has-icons-right">
-                <input class="input"  type="text"  [ngClass]="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.touched) ? 'is-danger' : 'is-success'" placeholder="Adınız"  formControlName="firstName" required>
+                <input class="input"  type="text"  [ngClass]="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.touched) ? 'is-danger' : 'is-success'" placeholder="{{ 'TEXT.YourName' | translate }}"  formControlName="firstName" required>
                 <span class="icon is-small is-left">
                   <i class="fas fa-user"></i>
                 </span>
                 </div>
               </div>
               <ng-container *ngIf="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.touched)">
-                <p class="help is-danger" > Lütfen Adınızı doldurunuz</p>
+                <p class="help is-danger" > {{ 'WARNING.ValidName' | translate }} </p>
               </ng-container>
-            </div>
+                     </div>
 
-            <div class="field">
-              <label class="label">Soyadınız</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text"  [ngClass]="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched) ? 'is-danger' : 'is-success'" placeholder="Soyadınız"  formControlName="surname">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-user"></i>
-                </span>
+
+                     <div class="field">
+                      <label class="label"> {{ 'TEXT.YourSurname' | translate }} </label>
+                      <div class="control has-icons-left has-icons-right">
+                        <input class="input is-success" type="text"  [ngClass]="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched) ? 'is-danger' : 'is-success'" placeholder="{{ 'TEXT.YourSurname' | translate }}"  formControlName="surname">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-user"></i>
+                        </span>
+                      </div>
+                      <ng-container *ngIf="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched)">
+                        <p class="help is-danger" > {{ 'WARNING.ValidSurname' | translate }} </p>
+                      </ng-container>
+                    </div>
+
+
+
+
+                    <div class="field">
+                      <label class="label">  {{ 'TEXT.YourEmail' | translate }}   </label>
+                      <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="{{ 'TEXT.YourEmail' | translate }} " [ngClass]="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched) ? 'is-danger' : 'is-success'" formControlName="email">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                      </div>
+                      <ng-container *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched)">
+                        <p class="help is-danger"> {{ 'WARNING.ValidEmail' | translate }} </p>
+                      </ng-container>
+
+                    </div>
+
+                    <div class="field">
+                      <label class="label">{{ 'TEXT.YourMessage' | translate }} </label>
+                      <div class="control">
+                        <textarea class="textarea" #desc placeholder="{{ 'TEXT.YourMessage' | translate }}" [ngClass]="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched) ? 'is-danger' : 'is-success'" formControlName="desc" required></textarea>
+                      </div>
+                      <ng-container *ngIf="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched)">
+                        <p class="help is-danger">  {{ 'WARNING.ValidDetail' | translate }} </p>
+                      </ng-container>
+                    </div>
+
+              <div class="field">
+                <label class="label"></label>
+                <div class="control">
+                  <button class="button is-primary" (click)="onSubmit()" [disabled]="contactForm.invalid"> {{ 'BUTTON.Send' | translate }} </button>
+                </div>
               </div>
-              <ng-container *ngIf="contactForm.get('surname')?.invalid && (contactForm.get('surname')?.touched)">
-                <p class="help is-danger" > Lütfen Soyadınızı doldurunuz</p>
-              </ng-container>
-            </div>
-
-            <div class="field">
-              <label class="label">Email Adresiniz</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email input" [ngClass]="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched) ? 'is-danger' : 'is-success'" formControlName="email">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fas fa-exclamation-triangle"></i>
-                </span>
-              </div>
-              <ng-container *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched)">
-                <p class="help is-danger">Geçersiz email adresi</p>
-              </ng-container>
-
-            </div>
-
-
-
-            <div class="field">
-              <label class="label">Mesajınız</label>
-              <div class="control">
-                <textarea class="textarea" #desc placeholder="Textarea" [ngClass]="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched) ? 'is-danger' : 'is-success'" formControlName="desc" required></textarea>
-              </div>
-              <ng-container *ngIf="contactForm.get('desc')?.invalid && (contactForm.get('desc')?.touched)">
-                <p class="help is-danger">Lütfen detay belirtiniz</p>
-              </ng-container>
-            </div>
-
-
-            <div class="field is-grouped">
-              <div class="control">
-                <button class="button is-link" (click)="onSubmit()" [disabled]="contactForm.invalid">Gönder</button>
-              </div>
-
+            </form>
+            <div class="column">
+              <!-- <iframe
+                width="100%"
+                height="100%"
+                frameborder="0"
+                style="border: 0;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50310.604001548294!2d23.703320025394262!3d37.99083200838609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd1f067043f1%3A0x2736354576668ddd!2zzpHOuM6uzr3OsQ!5e0!3m2!1sel!2sgr!4v1593689527371!5m2!1sel!2sgr"
+                allowfullscreen
+              ></iframe> -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.488566944488!2d27.27830413287902!3d37.80347946188853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bea5f76b37d089%3A0x77ecd8f353f2ea8a!2zS2FyYW92YSwgQWRhIEthbnRvbiBTaXRlc2ksIDA5NDAwIEt1xZ9hZGFzxLEvQXlkxLFu!5e0!3m2!1sen!2str!4v1714253234767!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
       </div>
-</form>
     </div>
-
-  </div>
-
-  </div>
-  <div style="width: 100%;height: 10rem;"></div>
+  </section>

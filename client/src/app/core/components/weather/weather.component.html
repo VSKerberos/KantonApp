@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
   <header class="card-header">
     <p class="card-header-title">
       {{CityName}}
@@ -18,4 +18,34 @@
 
   </div>
 
-</div>
+</div> -->
+
+
+
+          <div class="column">
+            <div class="card shadow-lg is-cursor-pointer">
+                <div class="card-image cover-image is-overflow-hidden">
+                  <figure class="image">
+                    <img src="../../../../assets/images/weather.PNG" alt="Weather">
+                  </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content has-text-grey-light">
+                        <h3>    {{CityName}}</h3>
+                        <p class="subtitle is-6 has-text-info"> {{ 'WEATHER.Temperature' | translate }}: <span class="has-text-black-ter is-size-6">{{ temp}} <span>&#8451;</span></span> </p>
+                        <p class="subtitle is-6 has-text-info">{{ 'WEATHER.Latitude' | translate }}: <span class="has-text-black-ter is-size-6"> {{lat}} <span>&#176;</span> </span> </p>
+                  <p class="subtitle is-6 has-text-info">{{ 'WEATHER.Longitude' | translate }}: <span class="has-text-black-ter is-size-6">{{ lon}} <span>&#176;</span></span> </p>
+                  <p class="subtitle is-6 has-text-info">{{ 'WEATHER.WindSpeed' | translate }}: <span class="has-text-black-ter is-size-6">{{windKph}} km/p</span> </p>
+                  <p class="subtitle is-6 has-text-info">{{ 'WEATHER.WindDirection' | translate }}: <span class="has-text-black-ter is-size-6">{{windDirection | directionName}}</span> </p>
+                  <p class="subtitle is-6 has-text-info">{{ 'WEATHER.Humidity' | translate }}: <span class="has-text-black-ter is-size-6"> % {{humidity}}</span> </p>
+                    </div>
+                </div>
+                <footer class="card-footer has-background-white-bis">
+                  <!-- <a href="#" class="card-footer-item p-5 has-text-grey is-uppercase is-text-wide-1">
+                      Continue Reading
+                  </a> -->
+                </footer>
+            </div>
+        </div>
+
+

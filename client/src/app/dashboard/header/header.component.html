@@ -1,4 +1,4 @@
-
+<!--
     <div id="header-wrapper">
       <div class="container">
         <div class="row">
@@ -15,6 +15,73 @@
             </header>
 
           </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="hero-head">
+      <div class="first_nav">
+        <div class="container">
+          <nav class="navbar">
+            <div class="navbar-brand">
+              <!-- <a class="navbar-item" href="http://aldi.github.io/awesome-bulma-templates">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma Hotel" width="112" height="28" />
+              </a> -->
+              <a class="navbar-item is-hidden-desktop" href="tel:+302109849583">
+                <span class="icon" style="color: #333;">
+                  <i class="fa fa-lg fa-phone-alt"></i>
+                </span>
+              </a>
+              <a class="navbar-item is-hidden-desktop" href="mailto:reservations@bulmahotels.com">
+                <span class="icon" style="color: #333;">
+                  <i class="fa fa-lg fa-envelope"></i>
+                </span>
+              </a>
+              <a class="navbar-item is-hidden-desktop" href="#" target="_blank">
+                <span class="icon">
+                  <i class="fab fa-lg fa-facebook-f"></i>
+                </span>
+              </a>
+              <!-- Mobile Menu -->
+              <div   [ngClass]="this.isBurger === true ?'navbar-burger burger is-active' : 'navbar-burger burger'" data-target="navMenuBlogHero" (click)="openBurgerMenu()">
+              <ng-container>
+                <span></span>
+                <span></span>
+                <span></span>
+              </ng-container>
+
+              </div>
+            </div>
+            <!-- Menu -->
+            <div id="navMenuBlogHero"  [ngClass]="this.isBurger === true ?'navbar-menu is-active' : 'navbar-menu'" (click)="openBurgerMenu()" >
+              <!-- Left Nav -->
+              <div class="navbar-start">
+                <a href="#" class="navbar-item"   routerLinkActive="is-active" routerLink="dashboard" > {{ 'NAVIGATION.Dashboard' | translate }} </a>
+                <a href="#" class="navbar-item"  routerLinkActive="is-active" routerLink="director"> {{ 'NAVIGATION.ManagementBoard' | translate }} </a>
+                <a href="#" class="navbar-item" routerLinkActive="is-active" routerLink="block">{{ 'NAVIGATION.BlockDirector' | translate }}</a>
+                <a href="#" class="navbar-item" routerLinkActive="is-active" routerLink="contact">{{ 'NAVIGATION.Contact' | translate }}</a>
+
+              </div>
+              <!-- ./Left Nav -->
+              <!-- Right Nav -->
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+
+
+                        <img src="../../../assets/images/flag_turkey.png" (click)="translateToTurkish()" alt="Turkiye">
+
+                    </p>
+                    <p class="control">
+                      <img src="../../../assets/images/flag_uk.png" style="width: 24px;height: 24px;" (click)="translateToEnglish()" alt="English">
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
       </div>
     </div>

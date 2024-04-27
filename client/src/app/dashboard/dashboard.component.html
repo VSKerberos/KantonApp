@@ -1,4 +1,106 @@
-<div id="main" style="position: relative;">
+
+  <!-- Rooms Section -->
+  <section class="hero" id="rooms">
+    <div class="hero-body">
+      <div class="container">
+
+        <app-showroom></app-showroom>
+
+      </div>
+    </div>
+  </section>
+  <!-- ./Rooms Section -->
+  <section class="section" *ngIf="this.adminService.weathers$ | async">
+    <div class="container">
+        <div class="columns" style="justify-content: space-evenly;">
+
+          <app-weather
+          [CityName]='this.weathers ? this.weathers[1]?.location?.name : undefined '
+          [lat]='this.weathers ? this.weathers[1]?.location?.lat : undefined '
+          [lon]='this.weathers ? this.weathers[1]?.location?.lon : undefined'
+          [temp]='this.weathers ? this.weathers[1]?.current?.temp_c : undefined'
+          [windKph]='this.weathers ? this.weathers[1]?.current?.wind_kph : undefined'
+
+
+          ></app-weather>
+
+          <app-weather
+          [CityName]=' this.weathers ?  this.weathers[0]!.location!.name : undefined'
+          [lat]='this.weathers[0]!.location!.lat'
+          [lon]='this.weathers[0]!.location!.lon'
+          [temp]='this.weathers[0]!.current!.temp_c'
+          [windKph]='this.weathers[0]!.current!.wind_kph'
+          [humidity]='this.weathers[0].current.humidity'
+          [windDirection]='this.weathers[0]!.current!.wind_dir!'></app-weather>
+
+          <app-currency></app-currency>
+        </div>
+      </div>
+    </section>
+
+
+
+   <!-- About Section -->
+   <section class="hero" id="about-us">
+    <div class="hero-body">
+      <div class="container">
+        <div class="content">
+          <h4 class="main_title title is-4"> {{ 'ADVERTISE.RentalHeader' | translate }} </h4>
+        </div>
+        <div class="columns content">
+          <div class="column">
+            <p>
+              {{ 'ADVERTISE.RentalDesc' | translate }}
+
+            </p>
+            <div class="reception">
+
+              <div class="reception-item">
+                <div>
+                  <div>
+                    <i class="fa fa-phone"></i> &nbsp;
+                    <span>  {{ 'ADVERTISE.RentalContact' | translate }}  </span>
+                  </div>
+                  <a href="tel:+905553449444">+90 (555) 344-94-44</a>
+                </div>
+                <a href="tel:+905553449444" class="button mobile-only">
+                  <span>Call</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- Reception Image -->
+          <div class="column reception-image">
+            <img
+              src="../../assets/images/advert/advert_1.jpg"
+              alt="Ada Kanton"
+            />
+          </div>
+        </div>
+        <div class="content">
+          <h5 class="main_title title is-5"> {{ 'ADVERTISE.RentalDetail' | translate }} </h5>
+          <p>
+            {{ 'ADVERTISE.RentalDesc' | translate }}
+          </p>
+          <ul>
+            <li>            {{ 'ADVERTISE.FirstFloor' | translate }}  </li>
+            <li> {{ 'ADVERTISE.RoomBath' | translate }} </li>
+            <li>  {{ 'ADVERTISE.meter' | translate }}  </li>
+            <li> {{ 'ADVERTISE.Deposit' | translate }} </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./About Section -->
+
+     <!-- Contact Us Section -->
+
+
+
+<!-- <div id="main" style="position: relative;">
   <div class="bg-video">
     <video class="bg-video__content" autoplay [muted]="'muted'" loop>
       <source src="../../../assets/video_mp4.mp4" type="video/mp4">
@@ -13,104 +115,7 @@
           <app-showroom></app-showroom>
 
       </div>
-      <!-- <div class="col-4 col-12-medium">
 
-        <section>
-
-          <h2>Welcome to Minimaxing!</h2>
-          <p>This is <strong>Minimaxing</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> and released for free by <a href="http://html5up.net">HTML5 UP</a>. It features
-          a simple, lightweight design, solid HTML5 and CSS3 code, and full responsive support for desktop, tablet, and small displays.</p>
-          <footer class="controls">
-            <a href="http://html5up.net" class="button">More cool designs ...</a>
-          </footer>
-
-
-        </section>
-
-      </div>
-      <div class="col-4 col-6-medium col-12-small">
-
-        <section>
-          <h2>Who are you guys?</h2>
-          <ul class="small-image-list">
-            <li>
-              <a href="#"><img src="assets/images/pic2.jpg" alt="" class="left" /></a>
-              <h4>Jane Anderson</h4>
-              <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis.</p>
-            </li>
-            <li>
-              <a href="#"><img src="assets/images/pic1.jpg" alt="" class="left" /></a>
-              <h4>James Doe</h4>
-              <p>Vitae magna eget odio amet mollis justo facilisis amet quis. Sed sagittis consequat.</p>
-            </li>
-          </ul>
-        </section>
-
-      </div>
-      <div class="col-4 col-6-medium col-12-small">
-
-      <app-showroom></app-showroom>
-
-      </div>
-      <div class="col-6 col-12-medium">
-
-        <section>
-          <h2>An assortment of pictures and text</h2>
-          <p>Duis neque nisi, dapibus sed mattis quis, rutrum et accumsan.
-          Suspendisse nibh. Suspendisse vitae magna eget odio amet mollis
-          justo facilisis quis. Sed sagittis mauris amet tellus gravida
-          lorem ipsum dolor sit amet consequat blandit lorem ipsum dolor
-          sit amet consequat sed dolore.</p>
-          <ul class="big-image-list">
-            <li>
-              <a href="#"><img src="assets/images/pic3.jpg" alt="" class="left" /></a>
-              <h3>Magna Gravida Dolore</h3>
-              <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-              facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-              Maecenas eu arcu purus, phasellus fermentum elit.</p>
-            </li>
-            <li>
-              <a href="#"><img src="assets/images/pic4.jpg" alt="" class="left" /></a>
-              <h3>Magna Gravida Dolore</h3>
-              <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-              facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-              Maecenas eu arcu purus, phasellus fermentum elit.</p>
-            </li>
-            <li>
-              <a href="#"><img src="assets/images/pic5.jpg" alt="" class="left" /></a>
-              <h3>Magna Gravida Dolore</h3>
-              <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo
-              facilisis amet quis consectetur in, sollicitudin vitae justo. Cras
-              Maecenas eu arcu purus, phasellus fermentum elit.</p>
-            </li>
-          </ul>
-        </section>
-
-      </div>
-      <div class="col-6 col-12-medium">
-
-        <article class="blog-post">
-          <h2>Just another blog post</h2>
-          <a class="comments" href="#">33 comments</a>
-          <a href="#"><img src="assets/images/pic6.jpg" alt="" class="top blog-post-image" /></a>
-          <h3>Magna Gravida Dolore</h3>
-          <p>Aenean non massa sapien. In hac habitasse platea dictumst.
-          Maecenas sodales purus et nulla sodales aliquam. Aenean ac
-          porttitor metus. In hac habitasse platea dictumst. Phasellus
-          blandit turpis in leo scelerisque mollis. Nulla venenatis
-          ipsum nec est porta rhoncus. Mauris sodales sed pharetra
-          nisi nec consectetur. Cras elit magna, hendrerit nec
-          consectetur in, sollicitudin vitae justo. Cras amet aliquet
-          Aliquam ligula turpis, feugiat id fermentum malesuada,
-          rutrum eget turpis. Mauris sodales sed pharetra nisi nec
-          consectetur. Cras elit magna, hendrerit nec consectetur
-          in sollicitudin vitae.</p>
-          <footer class="controls">
-            <a href="#" class="button">Continue Reading</a>
-          </footer>
-        </article>
-
-      </div> -->
     </div>
     <div class="row main-row">
       <div  class="col-12" >
@@ -164,6 +169,47 @@
 
       </div>
       <div class="col-3 col-12-medium">
+
+
+
+        <section>
+          <h2>ilan köşesi</h2>
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  src="../../assets/images/advert/advert_1.jpg"
+                  alt="Placeholder image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img
+                      src="https://bulma.io/assets/images/placeholders/96x96.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
+                iaculis mauris. <a>@bulmaio</a>. <a href="#">#css</a>
+                <a href="#">#responsive</a>
+                <br />
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section>
           <h2 style="text-transform: uppercase;">ATATÜRK</h2>
           <ul class="small-image-list">
@@ -175,20 +221,8 @@
           </ul>
 
         </section>
-
-
-        <section>
-          <h2>ilan köşesi</h2>
-          <ul class="link-list">
-            <li><a href="#">Quis accumsan lorem</a></li>
-            <li><a href="#">Sed neque nisi consequat</a></li>
-            <li><a href="#">Eget et amet consequat</a></li>
-            <li><a href="#">Dapibus sed mattis blandit</a></li>
-            <li><a href="#">Vitae magna sed dolore</a></li>
-          </ul>
-        </section>
     </div>
 
   </div>
 
-</div>
+</div> -->

@@ -1,5 +1,5 @@
-
-<table>
+<!--
+<table *ngIf="currencies">
   <caption>Döviz Kurları</caption>
   <thead>
     <tr>
@@ -11,20 +11,49 @@
   </thead>
   <tbody>
     <tr >
-      <td data-label="Account">USD</td>
-      <td data-label="Due Date">{{currencies?.askUSD}}</td>
-      <td data-label="Amount">{{currencies?.bidUSD}}</td>
+      <td data-label="Döviz cinsi">USD</td>
+      <td data-label="Alış">{{currencies?.askUSD}}</td>
+      <td data-label="Satış">{{currencies?.bidUSD}}</td>
     </tr>
     <tr >
-      <td data-label="Account">EUR</td>
-      <td data-label="Due Date">{{currencies?.askEUR}}</td>
-      <td data-label="Amount">{{currencies?.bidEUR}}</td>
+      <td data-label="Döviz Cinsi">EUR</td>
+      <td data-label="Alış">{{currencies?.askEUR}}</td>
+      <td data-label="Satış">{{currencies?.bidEUR}}</td>
     </tr>
     <tr >
-      <td data-label="Account">YEN</td>
-      <td data-label="Due Date">{{currencies?.askJPY}}</td>
-      <td data-label="Amount">{{currencies?.bidJPY}}</td>
+      <td data-label="Döviz Cinsi">YEN</td>
+      <td data-label="Alış">{{currencies?.askJPY}}</td>
+      <td data-label="Satış">{{currencies?.bidJPY}}</td>
     </tr>
 
   </tbody>
-</table>
+</table> -->
+
+
+<div class="column">
+  <div class="card shadow-lg is-cursor-pointer">
+      <div class="card-image cover-image is-overflow-hidden">
+        <figure class="image">
+          <img src="../../../../assets/images/exchanges.jpg" style="width: 303px;height: 201px;" alt="Exchanges">
+        </figure>
+      </div>
+      <div class="card-content">
+          <div class="content has-text-grey-light">
+              <p class="subtitle is-6 has-text-info">USD: <span class="has-text-black-ter is-size-6">    {{currencies?.askUSD}} /      {{currencies?.bidUSD}} </span> </p>
+
+              <p class="subtitle is-6 has-text-info">EUR: <span class="has-text-black-ter is-size-6">    {{currencies?.askEUR}} /      {{currencies?.bidEUR}} </span> </p>
+
+              <p class="subtitle is-6 has-text-info">YEN: <span class="has-text-black-ter is-size-6">    {{currencies?.askJPY}} /      {{currencies?.bidJPY}} </span> </p>
+
+
+
+
+          </div>
+      </div>
+      <footer class="card-footer has-background-white-bis">
+        <!-- <a href="#" class="card-footer-item p-5 has-text-grey is-uppercase is-text-wide-1">
+            Continue Reading
+        </a> -->
+      </footer>
+  </div>
+</div>

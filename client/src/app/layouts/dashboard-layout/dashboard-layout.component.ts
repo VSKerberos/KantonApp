@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -25,6 +26,11 @@ export class DashboardLayoutComponent implements OnInit {
     // setTimeout(() => {
     //   this.document.getElementById('theme')?.setAttribute('href','assets/main.css')
     // }, 2000);
+
+
+
+
+
 
   }
   ngOnInit(): void {

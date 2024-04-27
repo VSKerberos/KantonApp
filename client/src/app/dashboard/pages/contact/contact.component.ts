@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { ContactModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
@@ -13,7 +14,7 @@ export class ContactComponent {
 
   @ViewChild('desc') myTextArea: any;
 
-  constructor(private adminService:AdminService,private toaster:ToastrService){
+  constructor(private adminService:AdminService,private toaster:ToastrService,public translate: TranslateService){
 
   }
 

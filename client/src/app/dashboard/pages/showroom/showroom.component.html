@@ -1,4 +1,4 @@
-
+<!--
 
 
 <section>
@@ -19,4 +19,29 @@
 
 
 
-</section>
+</section> -->
+
+<ng-container *ngIf="this.avaliableShowroom.length>0; else loading">
+<div class="rooms columns">
+<div class="column is-cursor-pointer transform is-duration-500 hover-translate-y"  *ngFor="let item of avaliableShowroom">
+  <figure class="image">
+    <img
+      src="../../../assets/images/megaphone.png"
+      alt="Executive Gold Double"
+    />
+  </figure>
+  <div class="content">
+    <div></div>
+    <h1 class="title is-6"> {{'TEXT.ShowRoomAnnouncement' | translate}}  </h1>
+    <p>{{item.desc}}</p>
+    <a class="button is-primary open-modal" (click)="getDocument(item.path)" href="#"> {{ 'BUTTON.ViewDetails' | translate }}</a>
+  </div>
+</div>
+</div>
+</ng-container>
+
+<ng-template #loading>
+  <progress class="progress is-small is-link" max="100">15%</progress>
+</ng-template>
+
+

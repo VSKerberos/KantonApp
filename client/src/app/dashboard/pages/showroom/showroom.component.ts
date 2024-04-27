@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowRoomModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
 import { saveAs } from "file-saver";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-showroom',
@@ -14,10 +15,12 @@ export class ShowroomComponent implements OnInit {
   /**
    *
    */
-  constructor(private service:AdminService) {
-
+  constructor(private service:AdminService,public translate: TranslateService) {
 
   }
+
+
+
 
   ngOnInit(): void {
     this.service.listShowRoom().subscribe(res=>{

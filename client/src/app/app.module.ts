@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -15,11 +15,15 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DirectionNamePipe } from './core/pipes/direction-name.pipe';
 import { ImageSliderComponent } from './core/components/image-slider/image-slider.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
-
-
-
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  //return new TranslateHttpLoader(httpClient);
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +44,14 @@ import { ImageSliderComponent } from './core/components/image-slider/image-slide
       positionClass:"toast-top-right",
       preventDuplicates:true
     }),
-    DashboardModule
+    DashboardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
 
   ],
   providers: [
@@ -51,7 +62,9 @@ import { ImageSliderComponent } from './core/components/image-slider/image-slide
       provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true
     }
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
+  exports: [TranslateModule]
 
 
 })

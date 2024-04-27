@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../core/services/admin.service';
 import { MainModel } from '../core/models/job.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
    current:{humidity:0,temp_c:'',wind_dir:'',wind_kph:''},
    location:{lat:'',lon:'',name:''}
    }];
-constructor(public adminService:AdminService){
+constructor(public adminService:AdminService,public translate: TranslateService){
 
 }
 

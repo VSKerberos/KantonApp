@@ -1,0 +1,56 @@
+{
+  "HOME": {
+    "TITLE": "Başlık",
+    "SELECT": "Seçim "
+   },
+   "NAVIGATION": {
+    "Dashboard":"Ana Sayfa",
+    "ManagementBoard":"Yönetim Kurulu",
+    "BlockDirector":"Temsilciler Kurulu",
+    "Contact":"Bize Ulaşın"
+  },
+  "WEATHER":{
+    "Temperature":"Sıcaklık",
+    "Latitude":"Enlem",
+    "Longitude":"Boylam",
+    "WindSpeed":"Rüzgar Hızı",
+    "WindDirection":"Rüzgar Yönü",
+    "Humidity":"Nem"
+
+ },
+
+  "BUTTON":{
+    "ViewDetails":"Detay",
+    "Send":"Gönder"
+  },
+  "TEXT": {
+    "ShowRoomAnnouncement":"AdaKanton Eray Sitesi Duyuru",
+    "AdaKantonEraySite":"AdaKanton Eray Sitesi",
+    "BoardOfDirector":"Yönetim Kurulu",
+    "Name":"Adı",
+    "Surname":"Soyadı",
+    "JobTitle":"Görevi",
+    "YourMessage":"Mesajınız",
+    "YourName":"Adınız",
+    "YourSurname":"Soyadınız",
+    "YourEmail":"Email Adresiniz"
+  },
+  "ADVERTISE" : {
+    "RentalHeader":"Kiralık İlan",
+    "RentalDesc":"Aylık kira yaz sezonu için (6,7,8 ve 9. aylar için ) (1300 $) / (1200 €). Zemin kat açık mutfak, banyo, tv,salon, teraslar,üst kat 3 oda banyo tv.balkonlar, PVC çift cam kat kaloriferli dubleks. Site aiadatı ve elektirk kiracıya aittir.",
+    "RentalContact":"İlan İletişim",
+    "RentalDetail":"İlan Detayları",
+    "FirstFloor":"1.Kat",
+    "RoomBath":"3 Oda 2 Banyo",
+    "meter":"156 m²",
+    "Deposit":"Depozito: 1.000 €"
+  },
+  "WARNING":{
+    "ValidEmail":"Geçersiz email adresi",
+    "ValidSurname":"Lütfen Soyadınızı doldurunuz",
+    "ValidName":" Lütfen Adınızı doldurunuz",
+    "ValidDetail":"Lütfen detay belirtiniz"
+
+
+  }
+}

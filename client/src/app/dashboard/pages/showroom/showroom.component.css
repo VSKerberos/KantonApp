@@ -1,4 +1,4 @@
-
+/*
 .columns {
   float: left;
   width: 25%;
@@ -55,4 +55,22 @@
   .columns {
     width: 100%;
   }
+} */
+
+
+.is-duration-500 {
+  transition-duration: 0.5s;
+}
+
+.transform {
+    -webkit-transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+    transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+}
+
+.hover-translate-y:hover {
+    -webkit-transform: translateX(0) translateY(-0.25rem) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1) !important;
+    transform: translateX(0) translateY(-0.25rem) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1) !important;
+}
+.is-cursor-pointer {
+  cursor: pointer !important;
 }
