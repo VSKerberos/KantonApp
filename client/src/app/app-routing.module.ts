@@ -6,6 +6,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { DirectorComponent } from './dashboard/pages/director/director.component';
 import { BlokComponent } from './dashboard/pages/blok/blok.component';
 import { ContactComponent } from './dashboard/pages/contact/contact.component';
+import { AdvertComponent } from './dashboard/pages/advert-detail/advert/advert.component';
 
 
 
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
       path:'contact',
       component:ContactComponent
+    },
+    {
+      path:'advert',
+      component:AdvertComponent
     }
     ]
   },

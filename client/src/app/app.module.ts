@@ -13,8 +13,6 @@ import { TextInputComponent } from './core/components/text-input/text-input.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { DirectionNamePipe } from './core/pipes/direction-name.pipe';
-import { ImageSliderComponent } from './core/components/image-slider/image-slider.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
@@ -30,7 +28,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     AuthLayoutComponent,
     DashboardLayoutComponent,
-    ImageSliderComponent
+
   ],
   imports: [
     BrowserModule,

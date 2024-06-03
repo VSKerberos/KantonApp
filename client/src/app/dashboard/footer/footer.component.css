@@ -18,7 +18,9 @@ ul {
   margin-bottom: 1.5em;
 }
 
-
+:host ::ng-deep a:hover{
+  color: #fff;
+}
 
 * > p:last-child {
   margin-bottom: 0 !important;

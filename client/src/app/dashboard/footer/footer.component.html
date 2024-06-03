@@ -37,55 +37,45 @@
       <div class="columns">
         <div class="column is-4">
           <div class="content">
-            <h6 class="footer_title title is-6">NEWSLETTER</h6>
-            <p>We love to share new offers and exclusive promotions</p>
-            <div class="newsletter">
-              <form action="#" method="POST" class="newsletter-form">
-                <input type="email" name="email" placeholder="Enter your email address" />
-                <button>
-                  <i class="fa fa-paper-plane"></i>
-                </button>
-              </form>
+            <h6 class="footer_title title is-6"> {{'TEXT.UsefulLink' | translate}} </h6>
+            <div class="newsletter" [innerHTML]="getDynamicTemplate()">
+
             </div>
           </div>
         </div>
         <div class="column is-4" style="text-align: center;">
           <div class="content">
             <div>
-              <h6 class="footer_title title is-6">SOCIAL MEDIA</h6>
-              <p>Follow the Bulma Hotels on social media</p>
-              <a class="button is-medium is-facebook">
+              <h6 class="footer_title title is-6"> {{'TEXT.SOCIALMEDIA' | translate}}</h6>
+              <p> {{'TEXT.SOCIALMEDIATEXT' | translate}} </p>
+              <a class="button is-medium is-facebook" target="_blank" href="https://m.facebook.com/profile.php?id=131741284084347">
                 <span class="icon">
                   <i class="fab fa-facebook-f fa-lg"></i>
                 </span>
               </a>
-              <a class="button is-medium is-foursquare">
+              <!-- <a class="button is-medium is-foursquare">
                 <span class="icon">
                   <i class="fab fa-foursquare fa-lg"></i>
                 </span>
-              </a>
-              <a class="button is-medium is-twitter">
+              </a> -->
+              <!-- <a class="button is-medium is-twitter">
                 <span class="icon">
                   <i class="fab fa-twitter fa-lg"></i>
                 </span>
-              </a>
-              <a class="button is-medium is-linkedin">
+              </a> -->
+              <!-- <a class="button is-medium is-linkedin">
                 <span class="icon">
                   <i class="fab fa-linkedin-in fa-lg"></i>
                 </span>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
         <div class="column is-4">
           <div class="content">
-            <h6 class="footer_title title is-6">ADDRESS</h6>
-            <p class="is-marginless">Reach the destinaiton safely</p>
-            <p class="is-marginless">Street 21 - Kifisia - 99999 - Athens Greece</p>
-            <div>
-              <i class="fa fa-phone"></i> &nbsp; <span>Phone Number</span> &nbsp;
-              <a href="tel:+302109999999">+210 9999999</a>
-            </div>
+            <h6 class="footer_title title is-6">{{'TEXT.ADDRESS' | translate}} </h6>
+            <p class="is-marginless">Karaova, 1643 ada No:3/7 </p>
+            <p class="is-marginless">09400 Kuşadası/Aydın</p>
           </div>
         </div>
       </div>
@@ -94,10 +84,10 @@
   <div class="hero-foot">
     <div class="container has-text-centered">
       <p class="footer-text">
-        &copy; 2020 - Bulma Hotel. All rights reserved. <br />
-        <a href="https://www.aldiduzha.com?utm_source=Github" style="color: white;"
-          >Designed with <i class="fa fa-heart fa-fw" style="font-size: 10px; color: red;"></i> by Aldi Duzha</a
-        >
+        &copy; {{ currentYear }} - {{ 'TEXT.AdaKantonEraySite' | translate }}. {{'TEXT.AllRightReserved' | translate}}. <br />
+        <!-- <a href="https://www.aldiduzha.com?utm_source=Github" style="color: white;"
+          >Designed with <i class="fa fa-heart fa-fw" style="font-size: 10px; color: red;"></i> by Aldi Duzha</a -->
+
       </p>
     </div>
   </div>

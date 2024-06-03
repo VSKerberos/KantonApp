@@ -33,7 +33,13 @@
     "YourMessage":"Mesajınız",
     "YourName":"Adınız",
     "YourSurname":"Soyadınız",
-    "YourEmail":"Email Adresiniz"
+    "YourEmail":"Email Adresiniz",
+    "AllRightReserved":"Tüm Hakları saklıdır.",
+    "ADDRESS":"ADRES",
+    "SOCIALMEDIA":"SOSYAL MEDYA",
+    "SOCIALMEDIATEXT":"Adakanton'u sosyal medyada takip edin",
+    "ContactText":"Bizimle iletişime geçin.",
+    "UsefulLink":"FAYDALI LİNKLER"
   },
   "ADVERTISE" : {
     "RentalHeader":"Kiralık İlan",
@@ -43,7 +49,8 @@
     "FirstFloor":"1.Kat",
     "RoomBath":"3 Oda 2 Banyo",
     "meter":"156 m²",
-    "Deposit":"Depozito: 1.000 €"
+    "Deposit":"Depozito: 1.000 €",
+    "AdvertDetails":"İlan Detayları"
   },
   "WARNING":{
     "ValidEmail":"Geçersiz email adresi",

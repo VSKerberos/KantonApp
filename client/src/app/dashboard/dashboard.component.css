@@ -20,4 +20,11 @@ h2::first-letter{
   text-transform: uppercase;
 }
 
+.reception-link {
+  display: flex;
+    /* align-items: revert; */
+    justify-content: center;
+    width: 47%;
+    margin-top: 36px;
+}
 

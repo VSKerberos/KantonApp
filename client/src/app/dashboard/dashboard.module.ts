@@ -19,6 +19,10 @@ import { TextInputComponent } from '../core/components/text-input/text-input.com
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { ImageSliderComponent } from '../core/components/image-slider/image-slider.component';
+import { AdvertComponent } from './pages/advert-detail/advert/advert.component';
+
+
 
 
 @NgModule({
@@ -33,7 +37,10 @@ import { HttpClient } from '@angular/common/http';
         DirectorComponent,
         BlokComponent,
         CardviewComponent,
-        ContactComponent
+        ContactComponent,
+        ImageSliderComponent,
+        AdvertComponent
+
 
 
 

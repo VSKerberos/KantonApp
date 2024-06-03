@@ -32,7 +32,14 @@
     "YourMessage":"Your Message",
     "YourName":"Your Name",
     "YourSurname":"Your SurName",
-    "YourEmail":"Your Email Address"
+    "YourEmail":"Your Email Address",
+    "AllRightReserved":"Tüm Hakları saklıdır.",
+    "ADDRESS":"ADDRESS",
+    "SOCIALMEDIA":"SOCIAL MEDIA",
+    "SOCIALMEDIATEXT":"Follow the Adakanton on social media",
+    "ContactText":"If you've any queries feel free to contact us",
+    "UsefulLink":"USEFUL LINKS"
+
   },
   "ADVERTISE" : {
     "RentalHeader":"Rental Ad",
@@ -42,7 +49,8 @@
     "FirstFloor":"1st Floor",
     "RoomBath":"3 Rooms 2 Bathrooms",
     "meter":"156 m²",
-    "Deposit":"Deposit: €1,000"
+    "Deposit":"Deposit: €1,000",
+    "AdvertDetails":"Adert Details"
   },
   "WARNING":{
     "ValidEmail":"Please enter a valid Email address",

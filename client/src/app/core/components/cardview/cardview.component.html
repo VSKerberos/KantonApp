@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card" *ngIf="directors">
   <header class="card-header">
     <p class="card-header-title is-centered">
-      {{directors[0]!.islandName}}
+      {{directors[0].islandName}}
     </p>
 
   </header>

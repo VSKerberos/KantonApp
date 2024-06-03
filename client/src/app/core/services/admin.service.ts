@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, forkJoin, switchMap } from 'rxjs';
 import { BlockDirectorModel, ContactModel, DirectorModel, GeneralCurrencyModel, IslandModel, JobModel, MainModel, ShowRoomModel, UsefulLinksModel, UserModel } from '../models/job.model';
@@ -28,7 +28,7 @@ export class AdminService {
   public deleteFileUrl:string = `${GlobalConstants.BackEndConnection}files`;
   public   url:string='/assets/islands.json';
 
-  private currentUserSource = new BehaviorSubject<UserModel | null>(null);
+  public currentUserSource = new BehaviorSubject<UserModel | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
   private currencySource = new BehaviorSubject<GeneralCurrencyModel | null>(null);
@@ -40,6 +40,7 @@ export class AdminService {
   private weatherSource = new BehaviorSubject<MainModel[] |[]> ([]);
   weathers$ = this.weatherSource.asObservable();
 
+  userLoggedIn = signal<boolean>(false);
 
 
   constructor(private http: HttpClient, private toaster:ToastrService) { }
@@ -186,10 +187,13 @@ export class AdminService {
     }
 
     userAutheticate(usermodel:UserModel){
-      return this.http.post<UserModel>(this.accountUrl,usermodel).subscribe((resp:UserModel)=>{
-        this.currentUserSource.next(resp);
+      return this.http.post<UserModel>(this.accountUrl,usermodel);
 
-      });
+
+
+
+
+
     }
 
 
@@ -227,6 +231,7 @@ export class AdminService {
 
     logOutUser(){
       this.currentUserSource.next(null);
+      this.userLoggedIn.set(false);
     }
 
 }

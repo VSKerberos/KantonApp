@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { MainModel, UsefulLinksModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -14,6 +16,7 @@ import { AdminService } from 'src/app/core/services/admin.service';
 
 export class FooterComponent implements OnInit {
 
+  currentYear:number= new Date().getFullYear();
   allLinks: string[] = [];
   currentLinks:UsefulLinksModel[]=[];
   weathers :MainModel[] =[];
@@ -51,7 +54,7 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
   /**
    *
    */
-  constructor(private adminService:AdminService) {
+  constructor(private adminService:AdminService,public translate: TranslateService,private sanitizer: DomSanitizer) {
 
 
 
@@ -59,6 +62,7 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
 
   ngOnInit(): void {
     this.loadLinks();
+
 
   }
 
@@ -77,9 +81,10 @@ mainDynamicTemplate3 = ` <div class="col-3 col-12-medium col-12-small">
       return;
 
 
+
     for (var index in this.currentLinks) {
 
-      var current='<li><a href="'+`${this.currentLinks[index].url}`+'" target="_blank" >  '+`${this.currentLinks[index].title }`+'     </a></li>';
+      var current='<li><a  [href]="'+`${this.sanitizer.bypassSecurityTrustUrl(this.currentLinks[index].url)}`+'" target="_blank" >  '+`${this.currentLinks[index].title }`+'     </a></li>';
 
       this.allLinks.push(current);
 

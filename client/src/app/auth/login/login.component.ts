@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { UserModel } from 'src/app/core/models/job.model';
 import { AdminService } from 'src/app/core/services/admin.service';
@@ -11,10 +12,9 @@ import { AdminService } from 'src/app/core/services/admin.service';
 })
 export class LoginComponent {
 
-  /**
-   *
-   */
-  constructor(private service:AdminService) {
+
+  constructor(private service:AdminService, private router: Router,) {
+
 
 
   }
@@ -29,9 +29,10 @@ export class LoginComponent {
   login() {
 
     let user:UserModel= { username: this.userName?.value || '', password: this.Password?.value || '' };
-    this.service.userAutheticate(user);
-
-
+    this.service.userAutheticate(user).subscribe((resp:UserModel)=>{
+      this.service.currentUserSource.next(resp);
+      this.router.navigateByUrl('admin/showcase');
+    });
   }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
+import { NgOptimizedImage } from '@angular/common'
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class ImageSliderComponent implements OnInit, OnDestroy {
   images: string[] = [
-    '../../assets/images/banner.png',
-    '../../assets/images/banner.png',
-    '../../assets/images/banner.png'
+    '../../assets/images/advert/advert_1.jpg',
+    '../../assets/images/advert/advert_3.jpg',
+    '../../assets/images/advert/advert_4.jpg',
+    '../../assets/images/advert/advert_5.jpg',
+    '../../assets/images/advert/advert_2.jpg',
+    '../../assets/images/advert/advert_6.jpg',
+    '../../assets/images/advert/advert_7.jpg',
+    '../../assets/images/advert/advert_8.jpg'
   ];
   currentImage: string = this.images[0];
   interval: any;

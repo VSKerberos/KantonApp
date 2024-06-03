@@ -15,7 +15,7 @@ export class WeatherComponent {
   @Input() lon:string | undefined ='';
   @Input() temp:string | undefined='';
   @Input() windKph:string | undefined='';
-  @Input() humidity:number=0;
+  @Input() humidity?:number=0;
   @Input() windDirection:string="";
 
 
